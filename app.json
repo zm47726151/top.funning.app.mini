@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/delivery/index",
+    "pages/delivery/good/detail/index",
+    "pages/delivery/good/pay/index",
+    "pages/order/confirm/index",
+    "pages/order/index",
+    "pages/order/detail/index",
+    "pages/about/index",
+    "pages/about/knxy/index",
+    "pages/about/xyg/index",
+    "pages/about/address/edit/index",
+    "pages/about/address/index",
+    "pages/about/address/add/index",
+    "pages/group/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff9800",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "昕阳光"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "selectedColor": "#f57c00",
+    "color": "#ffa726",
+    "list": [
+      {
+        "pagePath": "pages/delivery/index",
+        "iconPath": "image/tabbars/delivery1.png",
+        "selectedIconPath": "image/tabbars/delivery.png",
+        "text": "外卖"
+      },
+      
+      {
+        "pagePath": "pages/order/index",
+        "iconPath": "image/tabbars/order1.png",
+        "selectedIconPath": "image/tabbars/order.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "iconPath": "image/tabbars/about1.png",
+        "selectedIconPath": "image/tabbars/about.png",
+        "text": "会员"
+      }
+    ]
+  }
+}

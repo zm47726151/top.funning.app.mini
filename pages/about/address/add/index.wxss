@@ -1,0 +1,54 @@
+/* pages/about/address/add/index.wxss */
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.item {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 15rpx 30rpx 15rpx;
+  border-bottom-style: solid;
+  border-bottom-color: #eee;
+  border-bottom-width: 1rpx;
+}
+
+.bottom_line{
+  border-bottom-width: 0rpx;
+  margin-bottom: 30rpx;
+}
+
+.no_bottom_line{
+  border-bottom-style: none;
+  padding-bottom: 0rpx;
+}
+
+.item .name {
+  width: 177rpx;
+}
+
+.item .value {
+  flex-grow: 1;
+}
+
+.button{
+  margin-top: 30rpx;
+  text-align: center;
+  padding: 20rpx;
+  color: #ffffff;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  background: #ff9800;
+  border-radius: 100rpx;
+
+}
+
+.button:active{
+  background: #fb8c00;
+}
+

@@ -1,0 +1,33 @@
+<!--pages/about/address/edit/index.wxml-->
+
+
+<view class='container bg_grey'>
+  <view class="item">
+    <text class="name globle_text_3">收货人</text>
+    <input class="value globle_text_3" type='text' placeholder="请填写收货姓名"></input>
+  </view>
+
+  <view class="item bottom_line">
+    <text class="name globle_text_3">联系电话</text>
+    <input class="value globle_text_3" type='text' placeholder="请填写收货手机号"></input>
+  </view>
+
+  <view class="item no_bottom_line">
+    <text class="name globle_text_3">选择城市</text>
+    <text class="value globle_text_3">广州市 海珠区</text>
+  </view>
+
+  <view class="item">
+    <text class="name globle_text_3 "></text>
+    <input class="value globle_text_3 " type='text' placeholder="清输入您的收货地址"></input>
+  </view>
+
+  <view class="item ">
+    <text class="name globle_text_3 ">楼号门牌</text>
+    <input class="value globle_text_3 " type='text' placeholder="棋牌/单元/门牌号"></input>
+  </view>
+
+  <view class="btn_save globle_text_3">保存地址</view>
+
+  <view class="btn_delete text_color_black globle_text_3">删除地址</view>
+</view>

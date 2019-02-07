@@ -1,0 +1,106 @@
+.item {
+  padding-left: 15rpx;
+  padding-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  border: none;
+  background: none !important;
+}
+
+.item::after {
+  border: none;
+}
+
+.item image{
+  width:40rpx;
+  height: 40rpx;
+}
+
+.item text{
+  flex-grow: 2;
+  text-align: left;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 40rpx;
+}
+
+.header {
+  height: 463.5rpx;
+  background-color: #ff9800;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wechat_name {
+  color: #eee;
+  margin-top: 15rpx;
+}
+
+.arrow {
+  width: 18rpx;
+  height: 31rpx;
+}
+
+.avatar {
+  width: 176rpx;
+  height: 176rpx;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.avatar_content {
+  width: 176rpx;
+  height: 176rpx;
+  border-radius: 50%;
+  background: #f69988;
+  border-width: 8.9rpx;
+  border-color: #eee;
+  border-style: solid;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.company_info {
+  flex-grow: 1;
+  color: #777;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.exit{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+  border-top-style: solid;
+  border-top-color: #eee;
+  border-top-width: 1rpx;
+  padding: 20rpx;
+  border-bottom-style: solid;
+  border-bottom-color: #eee;
+  border-bottom-width: 1rpx;
+}
+
+.exit:active{
+  background: #eee;
+}

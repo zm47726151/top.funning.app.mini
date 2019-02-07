@@ -1,0 +1,48 @@
+/* pages/order/index.wxss */
+
+.container {
+}
+
+.line {
+  color: #eee;
+  height: 16rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx;
+  align-items: center;
+}
+
+.header image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.header .datetime {
+  flex-grow: 1;
+  padding-right: 15rpx;
+  padding-left: 15rpx;
+}
+
+.pictures {
+  padding: 15rpx;
+  border-top-style: solid;
+  border-top-width: 1rpx;
+  border-top-color: #eee;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+  border-bottom-color: #eee;
+}
+
+.pictures image { 
+  width:177rpx;
+  height: 177rpx;
+  margin-right: 15rpx;
+}
+
+.bottom{
+  text-align: right;
+  padding: 15rpx;
+}

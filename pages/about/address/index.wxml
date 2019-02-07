@@ -1,0 +1,17 @@
+<!--pages/about/address/index.wxml-->
+<view>
+  <scroll-view scroll-y="true" class="address_list">
+    <view class="address_item" wx:for="{{address_list}}" wx:key="{{item.id}}">
+      <view>
+        <view class="address globle_text_3">{{item.address}}</view>
+        <view class="name phone globle_text_2 text_color_grey">{{item.name}} {{item.phone}}</view>
+      </view>
+      <view>
+        <image class="edit" src="image/edit.png"></image>
+      </view>
+    </view>
+  </scroll-view>
+  <view bindtap='addAddress' class="address_add text_color_orange globle_text_3">
+    <image src="image/add.png"></image>
+    新增收货地址</view>
+</view>

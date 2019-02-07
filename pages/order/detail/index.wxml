@@ -1,0 +1,17 @@
+<!--pages/order/detail/index.wxml-->
+<view class="container" wx:for="{{orders}}">
+  <view class="line"></view>
+  <view class="header">
+    <image src="/image/order/note.png"></image>
+    <text class="datetime globle_text_3">2018-12-11 12:00:00</text>
+    <text class="state globle_text_3 text_color_orange">已完成</text>
+    <!--配送中，已取消-->
+  </view>
+  <view class="pictures">
+    <image src="/temporary/1.jpg"></image>
+  </view>
+  <view class="bottom">
+    <text class="globle_text_2">共 1 件商品 总价：</text>
+    <text class="globle_text_3 text_color_red">￥124.30</text>
+  </view>
+</view>

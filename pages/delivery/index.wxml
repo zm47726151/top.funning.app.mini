@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view>
+  <view wx:if="{{state == 'show'}}" class="container bg_white">
+    <view class="header">
+      <view class='edit bg_grey'>
+        <text class="globle_text_2 text_color_grey">配送至：广州市天河区黄埔大道中283号110房,123321</text>
+        <image src='/image/delivery/arrow.png'></image>
+      </view>
+    </view>
+
+    <view class="content" style="bottom: {{carVisibility == 'show'?'100rpx':'0rpx'}}">
+      <scroll-view class="category bg_grey" scroll-y="true">
+        <view bindtap='typeCLick' wx:key="{{item.id}}" data-id='{{item.id}}' class="globle_text_3 {{item.active == 'true'?'bg_white text_color_orange':'text_color_grey'}}" wx:for="{{dataList}}">
+          {{item.name}}
+        </view>
+      </scroll-view>
+      <scroll-view class="good" id="goodList" scroll-y="true" scroll-top="{{scrollValue}}">
+        <view wx:for="{{currentItem.goodList}}" wx:key="{{item.id}}" bindtap='toDetail'>
+          <view class="item">
+            <image class="image" src="{{item.imageUrl}}"></image>
+            <view class="info">
+              <text class="name globle_text_4">{{item.name}}</text>
+              <text class="description globle_text_1 text_color_grey">{{item.description}}</text>
+              <view class="bottom">
+                <text class="price globle_text_2 text_color_red">¥{{item.price}}</text>
+                <view class="amount_container">
+                  <image catchtap='reduceClick' data-id='{{item.id}}' class="change reduce" src="/image/delivery/reduce.png"></image>
+                  <view class="amount globle_text_2 text_color_orange">{{item.amount == null?0:item.amount}}</view>
+                  <image catchtap='addClick' data-id='{{item.id}}' class="change add" src="/image/delivery/add.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="line"> </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view wx:if="{{carVisibility=='show'}}" class="shop_car">
+      <image class='shop_car_image' src="/image/delivery/shopcar.png"></image>
+      <view wx:if="{{goodAmount > 0}}" class='point globle_text_1'>{{goodAmount}}</view>
+      <view class="price">
+        <view class='globle_text_4 text_color_red'>
+          468.40
+        </view>
+        <view class='globle_text_1 text_color_grey'>
+          不含运费
+        </view>
+      </view>
+      <view class="pay globle_text_3">去结算</view>
+    </view>
+  </view>
+  <view wx:if="{{state == 'load'}}" class="lv_container">
+    <view class="lv_point lv_point1"></view>
+    <view class="lv_point lv_point2"></view>
+    <view class="lv_point lv_point3"></view>
+  </view>
+  <view wx:if="{{state == 'error'}}" class="lv_container">
+
+  </view>
+</view>

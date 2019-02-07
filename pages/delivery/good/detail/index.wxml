@@ -1,0 +1,46 @@
+<!--pages/delivery/good/detail/index.wxml-->
+<view class="main">
+  <scroll-view class="container" scroll-Y="true">
+    <swiper indicator-dots="true" indicator-color="#ffe0b2" indicator-active-color="#ff9800" autoplay="true" class="pictures">
+      <block wx:for="{{pictures}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <image item-id="{{item.id}}" src="{{item.url}}" style='width:750rpx; height:750rpx'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="name globle_text_5">增江的苹果</view>
+    <view class="description globle_text_3 text_color_grey">300g/盒,鲜甜多汁，口感爽脆，适合老人大人小孩，好味到停不下来</view>
+
+    <view class="operation">
+      <view class="price globle_text_4 text_color_red">¥129.00</view>
+      <view class="amount_container">
+        <image class="change reduce" src="/image/delivery/reduce.png"></image>
+        <view class="amount globle_text_3 text_color_orange">10</view>
+        <image class="change add" src="/image/delivery/add.png"></image>
+      </view>
+    </view>
+
+    <view class="line"></view>
+    <view class="title">
+      <view class="globle_text_2 text_color_grey">
+        <image src="/image/delivery/good/detail/line2.png"></image>商品详情
+        <image src="/image/delivery/good/detail/line1.png"></image>
+      </view>
+    </view>
+    <image style="width:750rpx;height:1430rpx"></image>
+  </scroll-view>
+
+  <view class="shop_car">
+    <image class='shop_car_image' src="/image/delivery/shopcar.png"></image>
+    <view class='point globle_text_1'>9</view>
+    <view class="price">
+      <view class='globle_text_4 text_color_red'>
+        468.40
+      </view>
+      <view class='globle_text_1 text_color_grey'>
+        不含运费
+      </view>
+    </view>
+    <view class="pay globle_text_3">去结算</view>
+  </view>
+</view>
