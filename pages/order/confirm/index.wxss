@@ -1,6 +1,6 @@
 /* pages/order/confirm/index.wxss */
 
-.content{
+.content {
   position: absolute;
   left: 0;
   right: 0;
@@ -11,10 +11,12 @@
 .address {
   padding: 20rpx;
   display: flex;
+  justify-content: space-between;
 }
 
 .address .column1 {
   flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .address .column1 name {
@@ -26,14 +28,31 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.address .column2 view{
+  margin-left: 20rpx;  
 }
 
 .address .column2 image {
   width: 17.5rpx;
   height: 35rpx;
-  margin-left: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+
+.address .add {
+  padding: 20rpx;
+  text-align: center;
+  border-style: dashed;
+  width: 100%;
+  border-width: 5rpx;
+  border-radius: 15rpx;
+}
+
+.address:active {
+  background: #eee;
 }
 
 .mail_line {
@@ -41,7 +60,7 @@
   height: 40rpx;
 }
 
-.title{
+.title {
   padding: 20rpx;
   border-bottom-color: #eee;
   border-bottom-style: solid;
@@ -84,6 +103,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .note {
@@ -92,6 +112,7 @@
   margin-top: 20rpx;
   margin-bottom: 20rpx;
   padding: 20rpx;
+  align-items: center;
 }
 
 .note text {
@@ -107,21 +128,19 @@
   flex-direction: row;
   padding: 20rpx;
   justify-content: space-between;
-
   border-bottom-color: #eee;
   border-bottom-style: solid;
   border-bottom-width: 1rpx;
 }
 
-.pay{
+.pay {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 20rpx;
-  margin-bottom: 30rpx;
 }
 
-.pay image{
+.pay image {
   width: 35rpx;
   height: 35rpx;
   margin-right: 20rpx;
@@ -130,7 +149,7 @@
   border-bottom-width: 1rpx;
 }
 
-.amount{
+.amount {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -140,28 +159,27 @@
   align-items: center;
   flex-direction: row;
   padding-left: 20rpx;
-
   border-top-color: #eee;
   border-top-style: solid;
   border-top-width: 1rpx;
 }
 
-.amount .value{
+.amount .value {
   flex-grow: 1;
   margin-left: 30rpx;
   margin-right: 30rpx;
 }
 
-.amount .btn_comfirm{
+.amount .btn_comfirm {
   padding-left: 120rpx;
   padding-right: 120rpx;
   height: 100rpx;
   background: #ffa726;
   display: flex;
   align-items: center;
-  color: #fff
-}
-.amount .btn_comfirm:active{
-  background: #ff9800;
+  color: #fff;
 }
 
+.amount .btn_comfirm:active {
+  background: #ff9800;
+}

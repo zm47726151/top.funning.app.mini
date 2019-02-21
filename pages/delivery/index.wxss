@@ -38,7 +38,6 @@
 }
 
 .content {
-
   position: absolute;
   top: 85rpx;
   right: 0;
@@ -178,4 +177,77 @@
 .shop_car image {
   width: 50rpx;
   height: 50rpx;
+}
+
+.shop_list {
+  position: absolute;
+  bottom: 100rpx;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+
+.shop_list_content {
+}
+
+.shop_list_header {
+  padding: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.shop_list_header image {
+  height: 35rpx;
+  width: 35rpx;
+  margin-right: 15rpx;
+}
+
+.shop_list_header .garbage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.shop_list scroll-view{
+  max-height: 500rpx;
+}
+
+
+.shop_list_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15rpx;
+}
+
+.shop_list_item .name {
+  width: 350rpx;
+}
+
+.shop_list_item .price {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  width: 200rpx;
+}
+
+.shop_list_item .change {
+  width: 41rpx;
+  padding: 15rpx;
+  height: 41rpx;
+}
+
+.shop_list_item .reduce {
+  width: 41rpx;
+  padding-left: 20rpx;
+  height: 41rpx;
+}
+
+.shop_list_item .reduce {
+  width: 41rpx;
+  padding-right: 20rpx;
+  height: 41rpx;
 }

@@ -1,18 +1,34 @@
 // pages/order/index.js
+
+const web = require("../../common/web.js");
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    "orders": [{}, {}, {}]
+    "state": 'show',
+    "orders": {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let that = this;
+    web.request("C1005", {
+    }, {
+      success: function(data) {
+        console.log(data);
+        that.setData({
+          "orders": data.orders
+        });
+      },
+      fail: function(code, msg) {
+        console.log(msg);
+      }
+    });
   },
 
   /**

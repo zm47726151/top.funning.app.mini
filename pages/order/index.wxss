@@ -27,7 +27,6 @@
 }
 
 .pictures {
-  padding: 15rpx;
   border-top-style: solid;
   border-top-width: 1rpx;
   border-top-color: #eee;
@@ -36,13 +35,21 @@
   border-bottom-color: #eee;
 }
 
-.pictures image { 
-  width:177rpx;
-  height: 177rpx;
-  margin-right: 15rpx;
+.pictures view{
+  padding: 15rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.bottom{
+.pictures image {
+  width: 177rpx;
+  height: 177rpx;
+  margin-right: 15rpx;
+  flex-shrink: 0;
+}
+
+.bottom {
   text-align: right;
   padding: 15rpx;
 }

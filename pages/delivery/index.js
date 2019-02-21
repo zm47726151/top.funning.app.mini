@@ -14,29 +14,32 @@ Page({
       }]
     }],
     "currentType": {},
-    "carVisibility": "hide", //show
+    "shopcarVisibility": "hide", //show
     "goodAmount": 0,
     "scrollValue": 0,
     "shopcarList": [],
+    "shoplistVisibility": ""
   },
   onLoad: function() {
-    console.log("onload");
     let that = this;
+    that.setData({
+      "state": "load"
+    });
+
     web.request("C1001", {}, {
-      success: function(data) {
+      success: function(data) { 
         let dataList = data.typeList;
-        dataList[0].active = 'true';
-        console.log(dataList[0]);
+        dataList[0].active = 'true'; 
         that.setData({
           "dataList": dataList,
           "currentType": dataList[0],
           "state": "show"
         });
       },
-      fail: function(code, res) {
-        console.log(res);
+      fail: function(code, msg) { 
         that.setData({
-          "state": "error"
+          "state": "error",
+          "errorMsg": msg
         });
       }
     });
@@ -61,11 +64,12 @@ Page({
     });
   },
   addClick: function(res) {
-    let id = res.target.dataset.id;
-    let goodAmount = this.data.goodAmount + 1;
+    let id = res.target.dataset.id; 
     let dataList = this.data.dataList;
     let currentType;
+    let that = this;
 
+    //1. 更新datatlist
     loop:
       for (let i = 0; i < dataList.length; i++) {
         let goodList = dataList[i].goodList;
@@ -77,75 +81,192 @@ Page({
             } else {
               dataList[i].goodList[j].amount = item.amount + 1;
             }
+            //2. 更新currentType
             currentType = dataList[i];
-            shopcarAdd(dataList[i].goodList[j]);
+            //3. 更新shopcarList
+            that.shopcarlistAdd(dataList[i].goodList[j]);
             break loop;
           }
         }
       }
 
+    //4. 更新GoodAmount
+    let goodAmount = this.data.goodAmount + 1;
+
     this.setData({
       "currentType": currentType,
       "dataList": dataList,
       "goodAmount": goodAmount,
-      "carVisibility": "show"
+      "shopcarVisibility": "show"
     });
   },
-  shopcarAdd: function(body) {
+  shopcarlistAdd: function(body) {
+    //3. 更新shopcarList
     let shopcarList = this.data.shopcarList;
+    let item;
     for (let i = 0; i < shopcarList.length; i++) {
       if (shopcarList[i].body.id == body.id) {
-        shopcarList[i].amount = shopcarList[i].amount + 1;
-        this.setData({
-          "shopcarList": shopcarList
-        });
-        return;
+        item = shopcarList[i];
+        break;
       }
     }
+    if (item == null) {
+      shopcarList.push({
+        "body": body,
+        "amount": 1
+      });
+    } else {
+      item.amount = item.amount + 1;
+    }
 
-    shopcarList.push({
-      "body": body,
-      "amount": 1
-    });
+    //5. 更新priceAmount
+    let priceAmount = 0; 
+    for (let i = 0; i < shopcarList.length; i++) {
+      priceAmount = priceAmount + shopcarList[i].body.price * shopcarList[i].amount;
+    }
+
     this.setData({
-      "shopcarList": shopcarList
+      "shopcarList": shopcarList,
+      "priceAmount": priceAmount
     });
   },
   reduceClick: function(res) {
     let id = res.target.dataset.id;
-    let goodAmount = this.data.goodAmount;
-    if (goodAmount > 0) {
-      goodAmount = goodAmount - 1;
-    }
     let dataList = this.data.dataList;
     let currentType;
+    let that = this;
 
+    //1. 更新datalist
     loop:
       for (let i = 0; i < dataList.length; i++) {
         let goodList = dataList[i].goodList;
         for (let j = 0; j < goodList.length; j++) {
           let item = goodList[j];
           if (item.id == id) {
-            if (item.amount == null) {
-              dataList[i].goodList[j].amount = 0;
+            if (item.amount == null || item.amount < 1) {
+              return;
             } else if (item.amount > 0) {
               dataList[i].goodList[j].amount = item.amount - 1;
             }
 
-            shopcarReduce(dataList[i].goodList[j]);
+            //2. 更新currentType
             currentType = dataList[i];
+
+            //3. 更新shopcartList
+            that.shopcarListReduce(dataList[i].goodList[j]);
             break loop;
           }
         }
       }
+
+    //4. 更新goodAcount
+    let goodAmount = this.data.goodAmount;
+    if (goodAmount > 0) {
+      goodAmount = goodAmount - 1;
+    }
+
     this.setData({
       "currentType": currentType,
       "dataList": dataList,
       "goodAmount": goodAmount,
-      "carVisibility": (goodAmount == 0 ? "hide" : "show")
+      "shopcarVisibility": (goodAmount == 0 ? "hide" : "show")
     });
   },
-  shopcarReduce: function(item) {},
+  shopcarListReduce: function(body) {
+    //3. 更新shopcarList
+    let shopcarList = this.data.shopcarList;
+    let item;
+    for (let i = 0; i < shopcarList.length; i++) {
+      if (shopcarList[i].body.id == body.id) {
+        item = shopcarList[i];
+        break;
+      }
+    }
+
+    if (item != null) {
+      item.amount = item.amount - 1;
+      if (item.amount < 1) {
+        let index = shopcarList.indexOf(item);
+        shopcarList.splice(index, 1);
+      }
+    }
+
+    //5. 更新priceAmount
+    let priceAmount = 0; 
+    for (let i = 0; i < shopcarList.length; i++) {
+      priceAmount = priceAmount + shopcarList[i].body.price * shopcarList[i].amount;
+    }
+
+    this.setData({
+      "shopcarList": shopcarList,
+      "priceAmount": priceAmount
+    });
+  },
+  showShoplist: function() {
+    this.setData({
+      "shoplistVisibility": "show",
+    });
+  },
+  hideShoplist: function() {
+    this.setData({
+      "shoplistVisibility": "hide",
+    });
+  },
+  clearShopcarList: function() {
+    //1. update datalist
+    let dataList = this.data.dataList;
+    for (let i = 0; i < dataList.length; i++) {
+      for (let j = 0; j < dataList[i].goodList.length; j++) {
+        dataList[i].goodList[j].amount = 0;
+      }
+    }
+
+    //2. update currentType
+    let currentType = this.data.currentType;
+    for (let i = 0; i < currentType.goodList.length; i++) {
+      currentType.goodList[i].amount = 0;
+    }
+
+    //3. update shopcarlist
+    let shopcarList = this.data.shopcarList;
+    shopcarList.splice(0, shopcarList.length);
+
+    //4. update goodAmount
+    //5. update priceAmount
+    this.setData({
+      "dataList": dataList,
+      "currentType": currentType,
+      "shopcarList": shopcarList,
+      "goodAmount": 0,
+      "priceAmount": 0,
+      "shoplistVisibility": "hide",
+      "shopcarVisibility": "hide"
+    });
+  },
+  comfirm: function() {
+    let shopcarList = this.data.shopcarList;
+    let priceAmount = this.data.priceAmount;
+    if (!shopcarList) {
+      wx.showToast({
+        image: "/image/failure.png",
+        title: '请选择商品',
+      });
+      return;
+    }
+
+    let json = {
+      "shopcarList": shopcarList,
+      "priceAmount": priceAmount,
+    }
+
+    let jsonStr = JSON.stringify(json);
+
+    //TODO Login
+
+    wx.navigateTo({
+      url: '/pages/order/confirm/index?info=' + jsonStr,
+    })
+  },
   toDetail: function() {
     wx.navigateTo({
       url: 'good/detail/index',
