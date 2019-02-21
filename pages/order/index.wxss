@@ -1,6 +1,10 @@
 /* pages/order/index.wxss */
 
-.container {
+.item {
+}
+
+.item:active{
+  background: #fafafa;
 }
 
 .line {

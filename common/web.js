@@ -25,6 +25,15 @@ function request(cmd, data, operation) {
       if (data.code > 0) {
         operation.success(data.data);
       } else {
+        if (!data.msg) {
+          data.msg = "处理异常";
+        }
+        if (!data.code) {
+          data.code = "-1";
+        }
+        if (data.code == "-2") {
+          login(cmd, data, operation);
+        }
         operation.fail(data.code, data.msg);
       }
     },
@@ -33,15 +42,45 @@ function request(cmd, data, operation) {
     },
     complete: function(res) {
       let cookies = res.cookies;
-      for (let i = 0; i < cookies.length; i++) {
-        let cookie = cookies[i];
-        app.cookie.set(cookie.name, cookie.value);
+      if (cookies) {
+        for (let i = 0; i < cookies.length; i++) {
+          let cookie = cookies[i];
+          app.cookie.set(cookie.name, cookie.value);
+        }
       }
       if (operation.complete) {
         operation.complete(res);
       }
     },
   });
+}
+
+function login(cmd, data, operation) {
+  console.log("login");
+  wx.login({
+    success(res) {
+      if (res.code) {
+        // 发起网络请求
+        request("C1003", {
+          "jsCode": res.code
+        }, {
+          success: function(data) {
+            getApp().isLogin = true;
+            request(cmd, data, operation);
+          },
+          fail: function(code, msg) {
+            operation.fail(code, msg);
+          },
+          complete: function(res) {
+            console.log("login finish");
+          }
+        })
+      } else {
+        operation.fail("-1", "登录失败");
+      }
+    }
+  });
+
 }
 
 module.exports = {

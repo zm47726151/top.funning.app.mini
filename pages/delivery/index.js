@@ -27,16 +27,16 @@ Page({
     });
 
     web.request("C1001", {}, {
-      success: function(data) { 
+      success: function(data) {
         let dataList = data.typeList;
-        dataList[0].active = 'true'; 
+        dataList[0].active = 'true';
         that.setData({
           "dataList": dataList,
           "currentType": dataList[0],
           "state": "show"
         });
       },
-      fail: function(code, msg) { 
+      fail: function(code, msg) {
         that.setData({
           "state": "error",
           "errorMsg": msg
@@ -64,7 +64,7 @@ Page({
     });
   },
   addClick: function(res) {
-    let id = res.target.dataset.id; 
+    let id = res.target.dataset.id;
     let dataList = this.data.dataList;
     let currentType;
     let that = this;
@@ -120,7 +120,7 @@ Page({
     }
 
     //5. 更新priceAmount
-    let priceAmount = 0; 
+    let priceAmount = 0;
     for (let i = 0; i < shopcarList.length; i++) {
       priceAmount = priceAmount + shopcarList[i].body.price * shopcarList[i].amount;
     }
@@ -192,7 +192,7 @@ Page({
     }
 
     //5. 更新priceAmount
-    let priceAmount = 0; 
+    let priceAmount = 0;
     for (let i = 0; i < shopcarList.length; i++) {
       priceAmount = priceAmount + shopcarList[i].body.price * shopcarList[i].amount;
     }
@@ -245,7 +245,6 @@ Page({
   },
   comfirm: function() {
     let shopcarList = this.data.shopcarList;
-    let priceAmount = this.data.priceAmount;
     if (!shopcarList) {
       wx.showToast({
         image: "/image/failure.png",
@@ -256,16 +255,34 @@ Page({
 
     let json = {
       "shopcarList": shopcarList,
-      "priceAmount": priceAmount,
     }
 
     let jsonStr = JSON.stringify(json);
-
-    //TODO Login
-
-    wx.navigateTo({
-      url: '/pages/order/confirm/index?info=' + jsonStr,
+    this.createOrder();
+  },
+  createOrder: function() {
+    wx.showLoading({
+      title: '处理中...',
     })
+    web.request("C1002", {
+      goodList: this.data.shopcarList
+    }, {
+      success: function(data) {
+        console.log(data);
+        wx.navigateTo({
+          url: '/pages/order/confirm/index?id=' + data.id,
+        })
+      },
+      fail: function(code, msg) {
+        wx.showToast({
+          title: msg,
+          image:"/image/failure.png"
+        });
+      },
+      complete:function(res){
+        wx.hideLoading();
+      }
+    });
   },
   toDetail: function() {
     wx.navigateTo({

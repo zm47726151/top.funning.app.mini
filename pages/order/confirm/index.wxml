@@ -9,7 +9,7 @@
         </view>
         <view class='column2'>
           <view class="globle_text_3 text_color_grey">修改</view>
-          <image src="image/arrow.png"></image>
+          <image src="../image/arrow.png"></image>
         </view>
       </view>
 
@@ -18,10 +18,10 @@
           添加地址
         </view>
       </view>
-      <image class="mail_line" src="image/line.png" mode="top"></image>
+      <image class="mail_line" src="../image/line.png" mode="top"></image>
       <view class="title bg_white globle_text_3">商品列表</view>
       <view class="goods bg_white">
-        <view class="item" wx:for="{{goods}}" wx:key="{{item.id}}">
+        <view class="item" wx:for="{{goodList}}" wx:key="{{item.id}}">
           <image src="{{item.body.imageUrl}}"></image>
           <view class="info">
             <text class="name globle_text_3">{{item.body.name}}</text>
@@ -50,7 +50,7 @@
       </view>
 
       <view class="pay bg_white">
-        <image src="image/pay.png"></image>
+        <image src="../image/pay.png"></image>
         <text class='globle_text_3'>微信支付</text>
       </view>
       <view style='height:30rpx;'></view>
@@ -68,6 +68,6 @@
   </view>
   <view wx:elif="{{state == 'error'}}" class="ev_container">
     <text>{{errorMsg}}</text>
-    <view bindtap='login' class="button text_color_orange globle_text_2">点击重试</view>
+    <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
   </view>
 </view>

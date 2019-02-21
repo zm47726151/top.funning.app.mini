@@ -1,19 +1,32 @@
 <!--pages/order/index.wxml-->
-<view class="container" wx:for="{{orders}}" wx:key="{{item.id}}">
-  <view class="line"></view>
-  <view class="header">
-    <image src="/image/order/note.png"></image>
-    <text class="datetime globle_text_3">{{item.createDT}}</text>
-    <text class="state globle_text_3 text_color_orange">{{item.stateStr}}</text>
-    <!--配送中，已取消-->
-  </view>
-  <scroll-view class="pictures" scroll-x="true">
-    <view>
-      <image  wx:for="{{item.goodList}}" wx:key="{{goodItem.body.id}}"  wx:for-item="goodItem"  src="{{goodItem.body.imageUrl}}"></image>
+<view class="container">
+  <scroll-view wx:if="{{state == 'show'}}" scroll-y>
+    <view class="item" data-id='{{item.id}}' wx:for="{{orders}}" bindtap='toDetail' wx:key="{{item.id}}">
+      <view class="line"></view>
+      <view class="header">
+        <image src="/image/order/note.png"></image>
+        <text class="datetime globle_text_3">{{item.createDT}}</text>
+        <text class="state globle_text_3 text_color_orange">{{item.stateStr}}</text>
+        <!--配送中，已取消-->
+      </view>
+      <scroll-view class="pictures" scroll-x="true">
+        <view>
+          <image wx:for="{{item.goodList}}" wx:key="{{goodItem.body.id}}" wx:for-item="goodItem" src="{{goodItem.body.imageUrl}}"></image>
+        </view>
+      </scroll-view>
+      <view class="bottom">
+        <text class="globle_text_2">共 {{item.goodAmount}} 件商品 总价：</text>
+        <text class="globle_text_3 text_color_red">￥{{item.priceAmount?item.priceAmount:item.price}}</text>
+      </view>
     </view>
   </scroll-view>
-  <view class="bottom">
-    <text class="globle_text_2">共 {{item.goodAmount}} 件商品 总价：</text>
-    <text class="globle_text_3 text_color_red">￥{{item.priceAmount}}</text>
+  <view wx:elif="{{state == 'load'}}" class="lv_container">
+    <view class="lv_point lv_point1"></view>
+    <view class="lv_point lv_point2"></view>
+    <view class="lv_point lv_point3"></view>
+  </view>
+  <view wx:elif="{{state == 'error'}}" class="ev_container">
+    <text>{{errorMsg}}</text>
+    <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
   </view>
 </view>

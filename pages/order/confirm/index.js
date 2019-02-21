@@ -10,7 +10,7 @@ Page({
   data: {
     "orderId": "",
     "state": "load", //error,load,show
-    "goods": [],
+    "goodList": [],
     "price": "",
     "poster": "6",
     "amount": "",
@@ -31,29 +31,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let json = JSON.parse(options.info);
-    let goods = json.shopcarList;
-    this.createOrder(goods);
+    this.setData({
+      "orderId": options.id
+    });
+    this.getData();
   },
-  createOrder: function(goods) {
+  getData: function() {
     let that = this;
+    let orderId  = this.data.orderId;
     that.setData({
       "state": "load"
     });
 
-    wq.request("C1002", {
-      goodList: goods
+    wq.request("C1006", {
+      "id": orderId
     }, {
       success: function(data) {
-        let goods = that.data.goods;
-        goods = goods.concat(data.goodList);
-        that.setData({
-          "state": "show",
-          "orderId": data.id,
-          "price": data.price,
-          "goods": goods,
-          "amount": (Number(data.price) + Number(that.data.poster))
-        });
+        data.state = "show";
+        data.amount = (Number(data.price) + Number(that.data.poster));
+        that.setData(data);
+        console.log(that.data);
       },
       fail: function(code, msg) {
         that.setData({
@@ -170,7 +167,9 @@ Page({
     }
     wq.request("C1004", data, {
       success: function(data) {
-          //TODO to order detail
+        wx.navigateTo({
+          url: '../detail/index?id=' + orderId,
+        });
       },
       fail: function(code, msg) {
         wx.showToast({
@@ -178,7 +177,7 @@ Page({
           title: msg ? msg : "确认失败",
         });
       },
-      complete:function(res){
+      complete: function(res) {
         wx.hideLoading();
       }
     });

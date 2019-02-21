@@ -8,11 +8,11 @@
     <open-data class="wechat_name" type="userNickName"></open-data>
   </view>
 
-  <button class="item">
+  <!--button class="item">
     <text class="globle_text_3">地址管理</text>
     <image class="arrow" src='/image/about/arrow.png'></image>
   </button>
-  <view class="line"></view>
+  <view class="line"></view-->
   <button open-type="contact" class="item">
     <text class="globle_text_3">建议</text>
     <image class="arrow" src='/image/about/arrow.png'></image>
@@ -29,6 +29,6 @@
   </button>
   <view class="line"></view> 
 
-  <view class="exit globle_text_3 text_color_red">退出登录</view>
+  <view class="exit globle_text_3 text_color_red hide">退出登录</view>
 
 </view>

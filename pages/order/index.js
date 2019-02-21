@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "state": 'show',
+    "state": 'load',
     "orders": {}
   },
 
@@ -16,17 +16,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getData();
+  },
+  getData: function() {
     let that = this;
-    web.request("C1005", {
-    }, {
+    that.setData({
+      "state": 'load',
+    });
+    web.request("C1005", {}, {
       success: function(data) {
         console.log(data);
         that.setData({
+          "state": 'show',
           "orders": data.orders
         });
       },
       fail: function(code, msg) {
         console.log(msg);
+        that.setData({
+          "state": 'error',
+          "errorMsg": msg
+        });
       }
     });
   },
@@ -78,5 +88,11 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  toDetail: function(res) {
+    wx.navigateTo({
+      url: 'detail/index?id=' + res.currentTarget.dataset.id,
+    })
   }
 })

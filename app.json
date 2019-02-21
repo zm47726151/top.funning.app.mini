@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/order/detail/index",
-    "pages/order/confirm/index",
-    "pages/order/index",
     "pages/delivery/index",
     "pages/delivery/good/detail/index",
     "pages/delivery/good/pay/index",
+    "pages/order/detail/index",
+    "pages/order/confirm/index",
+    "pages/order/index",
     "pages/about/index",
     "pages/about/knxy/index",
     "pages/about/xyg/index",

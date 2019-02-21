@@ -1,57 +1,40 @@
- 
+/* pages/order/detail/ */
+
 .content {
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  bottom: 100rpx;
+  bottom: 0rpx;
+}
+
+.header {
+  padding: 0rpx 40rpx 40rpx 40rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+
+.header text {
+  color: #fff;
 }
 
 .address {
   padding: 20rpx;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
-.address .column1 {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-.address .column1 name {
+.address  name {
   margin-bottom: 20rpx;
-}
-
-.address .column2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.address .column2 view{
-  margin-left: 20rpx;  
-}
-
-.address .column2 image {
-  width: 17.5rpx;
-  height: 35rpx;
-  margin-left: 20rpx;
-  margin-right: 10rpx;
-}
-
-.address .add {
-  padding: 20rpx;
-  text-align: center;
-  border-style: dashed;
-  width: 100%;
-  border-width: 5rpx;
-  border-radius: 15rpx;
-}
-
-.address:active {
-  background: #eee;
 }
 
 .mail_line {
@@ -64,6 +47,9 @@
   border-bottom-color: #eee;
   border-bottom-style: solid;
   border-bottom-width: 1rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .goods {
@@ -109,7 +95,6 @@
   display: flex;
   flex-direction: row;
   margin-top: 20rpx;
-  margin-bottom: 20rpx;
   padding: 20rpx;
   align-items: center;
 }
@@ -122,9 +107,40 @@
   flex-grow: 1;
 }
 
-.price {
+.orderId {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  border-bottom-color: #eee;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+}
+
+.orderId view {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.orderId .button {
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  border-radius: 15rpx;
+  border-color: #eee;
+  border-style: solid;
+  border-width: 1rpx;
+}
+
+.orderId .button:active {
+  background: #eee;
+}
+
+.common_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 20rpx;
   justify-content: space-between;
   border-bottom-color: #eee;
@@ -132,53 +148,33 @@
   border-bottom-width: 1rpx;
 }
 
-.pay {
+.footer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 20rpx;
+  padding: 30rpx 20rpx 30rpx 20rpx;
+  flex-direction: row-reverse;
 }
 
-.pay image {
-  width: 35rpx;
-  height: 35rpx;
-  margin-right: 20rpx;
-  border-bottom-color: #eee;
-  border-bottom-style: solid;
-  border-bottom-width: 1rpx;
+.footer .button {
+  margin-left: 20rpx;
+  border-style: solid;
+  border-width: 1rpx;
+  border-color: #777;
+  border-radius: 30rpx;
+  color: #777;
+  padding: 10rpx 20rpx 10rpx 20rpx;
 }
 
-.amount {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 100rpx;
-  left: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  padding-left: 20rpx;
-  border-top-color: #eee;
-  border-top-style: solid;
-  border-top-width: 1rpx;
+.footer .button:active {
+  background: #eee;
 }
 
-.amount .value {
-  flex-grow: 1;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-}
-
-.amount .btn_comfirm {
-  padding-left: 120rpx;
-  padding-right: 120rpx;
-  height: 100rpx;
-  background: #ffa726;
-  display: flex;
-  align-items: center;
+.footer .orange {
+  border-style: none;
   color: #fff;
+  padding: 10rpx 60rpx 10rpx 60rpx;
+  background: #ffa726;
 }
 
-.amount .btn_comfirm:active {
+.footer .orange:active {
   background: #ff9800;
 }
