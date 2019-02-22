@@ -1,5 +1,19 @@
 //index.js
 //获取应用实例
+
+/**
+ * 1. get good list from server
+ * 2. 对比 app.shopList 和 good list
+ * 3. 更新 good List 中的数量
+ * 4. 生成 current type
+ * 
+ * 
+ * 每一次更新 shop list 都要同步到 app.shopList
+ * 
+ * 
+ * 
+ */
+
 const app = getApp()
 const web = require("../../common/web.js");
 Page({
@@ -7,25 +21,28 @@ Page({
   data: {
     "state": "load", //show,error,
     "errorMsg": "",
-    "dataList": [{
+    /*"dataList": [{
       "active": "true",
       "goodList": [{
         "number": "0",
       }]
     }],
-    "currentType": {},
+    "currentType": {},*/
     "shopcarVisibility": "hide", //show
     "goodAmount": 0,
     "scrollValue": 0,
-    "shopcarList": [],
+    "shopList": [],
     "shoplistVisibility": ""
   },
   onLoad: function() {
+
+    this.getData();
+  },
+  getData: function() {
     let that = this;
     that.setData({
       "state": "load"
     });
-
     web.request("C1001", {}, {
       success: function(data) {
         let dataList = data.typeList;
@@ -35,6 +52,7 @@ Page({
           "currentType": dataList[0],
           "state": "show"
         });
+        that.dataInit();
       },
       fail: function(code, msg) {
         that.setData({
@@ -42,6 +60,62 @@ Page({
           "errorMsg": msg
         });
       }
+    });
+  },
+  onShow: function() {
+    this.dataInit();
+  },
+  dataInit: function() {
+    console.log("dataInit");
+    if (!this.data.dataList) {
+      return;
+    }
+
+    if (!this.data.currentType) {
+      return;
+    }
+
+    if (!app.shopList) {
+      app.shopList = [];
+      return;
+    }
+
+    let map = {};
+    for (let i = 0; i < app.shopList.length; i++) {
+      let m = app.shopList[i];
+      map[m.body.id] = m;
+    }
+
+    let dataList = this.data.dataList;
+    let currentTypeIndex = dataList.indexOf(this.data.currentType);
+    console.log(currentTypeIndex);
+
+    for (let i = 0; i < dataList.length; i++) {
+      let goodList = dataList[i].goodList;
+      for (let j = 0; j < goodList.length; j++) {
+        let good = goodList[j];
+        let item = map[good.id];
+        if (item) {
+          good.amount = item.amount;
+        }
+      }
+    }
+
+    let priceAmount = 0;
+    let goodAmount = 0;
+    for (let i = 0; i < app.shopList.length; i++) {
+      let item = app.shopList[i];
+      priceAmount = priceAmount + item.body.price * item.amount;
+      goodAmount = goodAmount + item.amount;
+    }
+
+    let currentType = dataList[currentTypeIndex];
+    this.setData({
+      "shopList": app.shopList,
+      "dataList": dataList,
+      "priceAmount": priceAmount,
+      "goodAmount": goodAmount,
+      "currentType": currentType
     });
   },
   typeCLick: function(res) {
@@ -83,8 +157,8 @@ Page({
             }
             //2. 更新currentType
             currentType = dataList[i];
-            //3. 更新shopcarList
-            that.shopcarlistAdd(dataList[i].goodList[j]);
+            //3. 更新shopList
+            that.shopListAdd(dataList[i].goodList[j]);
             break loop;
           }
         }
@@ -100,18 +174,18 @@ Page({
       "shopcarVisibility": "show"
     });
   },
-  shopcarlistAdd: function(body) {
-    //3. 更新shopcarList
-    let shopcarList = this.data.shopcarList;
+  shopListAdd: function(body) {
+    //3. 更新shopList
+    let shopList = this.data.shopList;
     let item;
-    for (let i = 0; i < shopcarList.length; i++) {
-      if (shopcarList[i].body.id == body.id) {
-        item = shopcarList[i];
+    for (let i = 0; i < shopList.length; i++) {
+      if (shopList[i].body.id == body.id) {
+        item = shopList[i];
         break;
       }
     }
     if (item == null) {
-      shopcarList.push({
+      shopList.push({
         "body": body,
         "amount": 1
       });
@@ -121,14 +195,15 @@ Page({
 
     //5. 更新priceAmount
     let priceAmount = 0;
-    for (let i = 0; i < shopcarList.length; i++) {
-      priceAmount = priceAmount + shopcarList[i].body.price * shopcarList[i].amount;
+    for (let i = 0; i < shopList.length; i++) {
+      priceAmount = priceAmount + shopList[i].body.price * shopList[i].amount;
     }
 
     this.setData({
-      "shopcarList": shopcarList,
+      "shopList": shopList,
       "priceAmount": priceAmount
     });
+    app.shopList = shopList;
   },
   reduceClick: function(res) {
     let id = res.target.dataset.id;
@@ -153,7 +228,7 @@ Page({
             currentType = dataList[i];
 
             //3. 更新shopcartList
-            that.shopcarListReduce(dataList[i].goodList[j]);
+            that.shopListReduce(dataList[i].goodList[j]);
             break loop;
           }
         }
@@ -172,13 +247,13 @@ Page({
       "shopcarVisibility": (goodAmount == 0 ? "hide" : "show")
     });
   },
-  shopcarListReduce: function(body) {
-    //3. 更新shopcarList
-    let shopcarList = this.data.shopcarList;
+  shopListReduce: function(body) {
+    //3. 更新shopList
+    let shopList = this.data.shopList;
     let item;
-    for (let i = 0; i < shopcarList.length; i++) {
-      if (shopcarList[i].body.id == body.id) {
-        item = shopcarList[i];
+    for (let i = 0; i < shopList.length; i++) {
+      if (shopList[i].body.id == body.id) {
+        item = shopList[i];
         break;
       }
     }
@@ -186,21 +261,22 @@ Page({
     if (item != null) {
       item.amount = item.amount - 1;
       if (item.amount < 1) {
-        let index = shopcarList.indexOf(item);
-        shopcarList.splice(index, 1);
+        let index = shopList.indexOf(item);
+        shopList.splice(index, 1);
       }
     }
 
     //5. 更新priceAmount
     let priceAmount = 0;
-    for (let i = 0; i < shopcarList.length; i++) {
-      priceAmount = priceAmount + shopcarList[i].body.price * shopcarList[i].amount;
+    for (let i = 0; i < shopList.length; i++) {
+      priceAmount = priceAmount + shopList[i].body.price * shopList[i].amount;
     }
 
     this.setData({
-      "shopcarList": shopcarList,
+      "shopList": shopList,
       "priceAmount": priceAmount
     });
+    app.shopList = shopList;
   },
   showShoplist: function() {
     this.setData({
@@ -212,7 +288,7 @@ Page({
       "shoplistVisibility": "hide",
     });
   },
-  clearShopcarList: function() {
+  clearShopList: function() {
     //1. update datalist
     let dataList = this.data.dataList;
     for (let i = 0; i < dataList.length; i++) {
@@ -227,25 +303,26 @@ Page({
       currentType.goodList[i].amount = 0;
     }
 
-    //3. update shopcarlist
-    let shopcarList = this.data.shopcarList;
-    shopcarList.splice(0, shopcarList.length);
+    //3. update shopList
+    let shopList = this.data.shopList;
+    shopList.splice(0, shopList.length);
 
     //4. update goodAmount
     //5. update priceAmount
     this.setData({
       "dataList": dataList,
       "currentType": currentType,
-      "shopcarList": shopcarList,
+      "shopList": shopList,
       "goodAmount": 0,
       "priceAmount": 0,
       "shoplistVisibility": "hide",
       "shopcarVisibility": "hide"
     });
+    app.shopList = shopList;
   },
   comfirm: function() {
-    let shopcarList = this.data.shopcarList;
-    if (!shopcarList) {
+    let shopList = this.data.shopList;
+    if (!shopList) {
       wx.showToast({
         image: "/image/failure.png",
         title: '请选择商品',
@@ -253,19 +330,11 @@ Page({
       return;
     }
 
-    let json = {
-      "shopcarList": shopcarList,
-    }
-
-    let jsonStr = JSON.stringify(json);
-    this.createOrder();
-  },
-  createOrder: function() {
     wx.showLoading({
       title: '处理中...',
     })
     web.request("C1002", {
-      goodList: this.data.shopcarList
+      goodList: this.data.shopList
     }, {
       success: function(data) {
         console.log(data);
@@ -276,17 +345,17 @@ Page({
       fail: function(code, msg) {
         wx.showToast({
           title: msg,
-          image:"/image/failure.png"
+          image: "/image/failure.png"
         });
       },
-      complete:function(res){
+      complete: function(res) {
         wx.hideLoading();
       }
     });
   },
-  toDetail: function() {
+  toDetail: function(res) {
     wx.navigateTo({
-      url: 'good/detail/index',
+      url: 'good/detail/index?id=' + res.currentTarget.dataset.id,
     })
   }
 })

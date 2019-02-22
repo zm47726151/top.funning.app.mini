@@ -4,8 +4,8 @@ const web = require("common/web.js");
 
 App({
   isLogin: false,
-  //shopList:[],
-  //cookie:{},
+  shopList:[],
+  cookie:{},
   onLaunch: function () {
     this.cookie = new Map(); 
   }

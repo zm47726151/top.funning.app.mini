@@ -189,9 +189,7 @@
   flex-direction: column-reverse;
 }
 
-
-.shop_list_content {
-}
+ 
 
 .shop_list_header {
   padding: 15rpx;

@@ -165,16 +165,15 @@ Page({
     }, {
       success: function(data) {
         that.getData();
+        wx.hideLoading();
       },
       fail: function(code, msg) {
         wx: wx.showToast({
           title: msg,
           image: '/image/failure.png'
-        });
+        });wx.hideLoading();
       },
-      complete: function(res) {
-        wx.hideLoading();
-      }
+
     });
   },
   refund: function() {
@@ -187,16 +186,14 @@ Page({
     }, {
       success: function(data) {
         that.getData();
+        wx.hideLoading();
       },
       fail: function(code, msg) {
         wx: wx.showToast({
           title: msg,
           image: '/image/failure.png'
-        });
+        });wx.hideLoading();
       },
-      complete: function(res) {
-        wx.hideLoading();
-      }
     });
   }
 })

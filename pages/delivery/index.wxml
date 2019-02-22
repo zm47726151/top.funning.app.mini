@@ -15,7 +15,7 @@
         </view>
       </scroll-view>
       <scroll-view class="good" id="goodList" scroll-y="true" scroll-top="{{scrollValue}}">
-        <view wx:for="{{currentType.goodList}}" wx:key="{{item.id}}" bindtap='toDetail'>
+        <view wx:for="{{currentType.goodList}}" wx:key="{{item.id}}" data-id='{{item.id}}' bindtap='toDetail'>
           <view class="item">
             <image class="image" src="{{item.imageUrl}}"></image>
             <view class="info">
@@ -56,13 +56,13 @@
         <view class="shop_list_header bg_grey">
           <text class="globle_text_3">已选商品</text>
 
-          <view catchtap='clearShopcarList' class="garbage">
+          <view catchtap='clearShopList' class="garbage">
             <image src="/image/delivery/garbage.png"></image>
             <text class="globle_text_3 text_color_grey">清空</text>
           </view>
         </view>
         <scroll-view scroll-y="true">
-          <view wx:for="{{shopcarList}}" wx:key="{{item.body.id}}">
+          <view wx:for="{{shopList}}" wx:key="{{item.body.id}}">
             <view class="shop_list_item">
               <text class="name globle_text_3">{{item.body.name}}</text>
               <text class="price text_color_orange globle_text_3">￥{{item.body.price}}</text>
@@ -84,6 +84,6 @@
   </view>
   <view wx:elif="{{state == 'error'}}" class="ev_container">
     <text>{{errorMsg}}</text>
-    <view bindtap='onLoad' class="button text_color_orange globle_text_2">点击重试</view>
+    <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
   </view>
 </view>
