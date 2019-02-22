@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "orderId": "",
     "state": "load", //error,load,show
+    "id": "",
     "goodList": [],
     "price": "",
     "poster": "6",
@@ -31,20 +31,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options);
     this.setData({
-      "orderId": options.id
+      "id": options.id
     });
     this.getData();
   },
   getData: function() {
     let that = this;
-    let orderId  = this.data.orderId;
+    let id = this.data.id;
     that.setData({
       "state": "load"
     });
 
     wq.request("C1006", {
-      "id": orderId
+      "id": id
     }, {
       success: function(data) {
         data.state = "show";
@@ -144,12 +145,11 @@ Page({
       title: '处理中',
     })
 
-    let orderId = this.data.orderId;
+    let id = this.data.id;
     let goodlist = this.data.goods;
     let poster = this.data.poster;
     let note = this.data.note;
     let address = this.data.address;
-
 
     if (!this.data.addressExist) {
       wx.showToast({
@@ -160,15 +160,14 @@ Page({
     }
 
     let data = {
-      "id": orderId,
-      "goodlist": goodlist,
+      "id": id,
       "note": note,
       "address": address
     }
     wq.request("C1004", data, {
       success: function(data) {
         wx.navigateTo({
-          url: '../detail/index?id=' + orderId,
+          url: '../detail/index?id=' + id,
         });
       },
       fail: function(code, msg) {

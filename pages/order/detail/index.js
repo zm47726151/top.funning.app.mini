@@ -16,7 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({ "orderId": options.id});
+    this.setData({
+      "orderId": options.id
+    });
     this.getData();
   },
   getData: function(id) {
@@ -127,15 +129,30 @@ Page({
   onShareAppMessage: function() {
 
   },
-
+  copyText: function(e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function(res) {
+        wx.getClipboardData({
+          success: function(res) {
+            wx.showToast({
+              title: '复制成功',
+              image: "/image/success.png"
+            });
+          }
+        })
+      }
+    })
+  },
   makePhoneCall: function() {
     wx.makePhoneCall({
       phoneNumber: '18620552310' // 仅为示例，并非真实的电话号码
     })
   },
   pay: function() {
+    let that = this;
     wx.navigateTo({
-      url: '../confirm/index',
+      url: '../confirm/index?id=' + that.data.orderId,
     })
   },
   cancel: function() {
