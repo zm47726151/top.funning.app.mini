@@ -77,7 +77,6 @@ Page({
 
     if (!app.shopList) {
       app.shopList = [];
-      return;
     }
 
     let map = {};
