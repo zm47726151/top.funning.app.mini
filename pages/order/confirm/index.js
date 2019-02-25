@@ -169,14 +169,13 @@ Page({
         wx.navigateTo({
           url: '../detail/index?id=' + id,
         });
+        wx.hideLoading();
       },
       fail: function(code, msg) {
         wx.showToast({
           image: "/image/failure.png",
           title: msg ? msg : "确认失败",
         });
-      },
-      complete: function(res) {
         wx.hideLoading();
       }
     });

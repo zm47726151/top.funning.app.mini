@@ -18,6 +18,11 @@
     <image class="arrow" src='/image/about/arrow.png'></image>
   </button>
   <view class="line"></view>
+    <button open-type="contact" class="item">
+    <text class="globle_text_3">客服</text>
+    <image class="arrow" src='/image/about/arrow.png'></image>
+  </button>
+  <view class="line"></view>
   <button bindtap='toKnxy' class="item">
     <text class="globle_text_3">关于 昕阳光</text>
     <image class="arrow" src='/image/about/arrow.png'></image>

@@ -26,6 +26,10 @@ Page({
     web.request("C1005", {}, {
       success: function(data) {
         console.log(data);
+        if (!data.orders || data.orders.length < 1) {
+          this.fail("-1","没有订单");
+          return;
+        }
         that.setData({
           "state": 'show',
           "orders": data.orders

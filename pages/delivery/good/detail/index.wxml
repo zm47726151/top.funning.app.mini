@@ -28,7 +28,7 @@
           <image src="/image/delivery/good/detail/line1.png"></image>
         </view>
       </view>
-      <image wx:for="{{detail.imageList}}" src="{{item}}" mode='widthFix' style="width:750rpx;"></image>
+      <image wx:for="{{detail.imageList}}" wx:key="{{index}}" src="{{item}}" mode='widthFix' style="width:750rpx;"></image>
     </scroll-view>
 
     <view wx:if="{{goodAmount>0}}" catchtap='showShoplist' class="shop_car">

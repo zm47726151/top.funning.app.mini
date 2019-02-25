@@ -4,15 +4,16 @@
  */
 
 function request(cmd, data, operation) {
-  console.log(cmd);
-  console.log(data);
+  console.log("web request " + cmd, cmd);
+  console.log("web request " + cmd + " data", data);
   let app = getApp();
   let cookie = "";
   app.cookie.forEach(function(value, key, map) {
     cookie = key + "=" + value + ";" + cookie;
   });
+  console.log("web request " + cmd + " cookie", cookie);
   wx.request({
-    url: 'http://127.0.0.1:8080/api',
+    url: 'https://fruits.knxy.top/api',
     data: {
       "cmd": cmd,
       "data": data,
@@ -23,6 +24,7 @@ function request(cmd, data, operation) {
     method: 'POST',
     dataType: 'json',
     success: function(res) {
+      console.log("web request " + cmd + " success", res);
       setCookies(res);
 
       let d = res.data;
@@ -42,22 +44,17 @@ function request(cmd, data, operation) {
           operation.fail(d.code, d.msg);
         }
       }
-      if (operation.complete) {
-        operation.complete(res);
-      }
+
     },
     fail: function(res) {
+      console.log("web request " + cmd + " fail", res);
       setCookies(res);
       operation.fail(-1000, "网络请求失败");
-
-      if (operation.complete) {
-        operation.complete(res);
-      }
     }
   });
 }
 
-function login(cmd, data, operation) { 
+function login(cmd, data, operation) {
   wx.login({
     success(res) {
       if (res.code) {
@@ -71,28 +68,49 @@ function login(cmd, data, operation) {
           },
           fail: function(code, msg) {
             operation.fail(code, msg);
-            operation.complete(res);
           }
         });
       } else {
         operation.fail("-1", "登录失败");
-        operation.complete(res);
       }
     },
-    fail: function(res) {
+    fail: function (res) {
       operation.fail("-1", "登录失败");
-      operation.complete(res);
     }
   });
 }
 
 function setCookies(res) {
   let cookies = res.cookies;
+
   let app = getApp();
   if (cookies) {
     for (let i = 0; i < cookies.length; i++) {
       let cookie = cookies[i];
       app.cookie.set(cookie.name, cookie.value);
+    }
+    return;
+  }
+
+  cookies = res.header["Set-Cookie"];
+  if (cookies) {
+    let kvs = cookies.split(";");
+    if (!kvs || kvs.length < 1) {
+      return;
+    }
+
+    for (let i = 0; i < kvs.length; i++) {
+      let kv = kvs[i];
+      kv = kv.split("=");
+      if (!kv || kv.length < 2) {
+        break;
+      }
+      let key = kv[0].trim();
+      let value = kv[1].trim();
+      if (!key || key == "Path") {
+        break;
+      }
+      app.cookie.set(key, value);
     }
   }
 }

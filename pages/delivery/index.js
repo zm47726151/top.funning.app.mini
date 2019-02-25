@@ -339,15 +339,14 @@ Page({
         console.log(data);
         wx.navigateTo({
           url: '/pages/order/confirm/index?id=' + data.id,
-        })
+        });
+        wx.hideLoading();
       },
       fail: function(code, msg) {
         wx.showToast({
           title: msg,
           image: "/image/failure.png"
         });
-      },
-      complete: function(res) {
         wx.hideLoading();
       }
     });
