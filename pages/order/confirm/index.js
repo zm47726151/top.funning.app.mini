@@ -12,7 +12,7 @@ Page({
     "id": "",
     "goodList": [],
     "price": "",
-    "poster": "6",
+    "poster": "0",
     "amount": "",
     "note": "",
     "address": {
@@ -164,19 +164,65 @@ Page({
       "note": note,
       "address": address
     }
-    wq.request("C1004", data, {
+    let that = this;
+    wq.request("C1010", data, {
       success: function(data) {
+        wx.hideLoading();
+        that.pay(data);
+
+      },
+      fail: function(code, msg) {
+        wx.hideLoading();
+        wx.showToast({
+          image: "/image/failure.png",
+          title: msg ? msg : "支付失败",
+        });
+      }
+    });
+  },
+  pay: function(p) {
+    console.log(p);
+    let that = this;
+    wx.requestPayment({
+      timeStamp: p.timeStamp,
+      nonceStr: p.nonceStr,
+      package: p.package,
+      signType: 'MD5',
+      paySign: p.sign,
+      success(res) {
+        that.clientPaySuccess();
+      },
+      fail(res) {
+        console.log(res);
+        wx.hideLoading();
+        wx.showToast({
+          image: "/image/failure.png",
+          title: "支付失败",
+        });
+      }
+    });
+  },
+  clientPaySuccess: function() {
+    console.log("clientPaySuccess");
+    wx.showLoading({
+      title: '处理中',
+    })
+    let id = this.data.id;
+    wq.request("C1004", {
+      "id": id,
+    }, {
+      success: function(data) {
+        wx.hideLoading();
         wx.navigateTo({
           url: '../detail/index?id=' + id,
         });
-        wx.hideLoading();
       },
       fail: function(code, msg) {
+        wx.hideLoading();
         wx.showToast({
           image: "/image/failure.png",
-          title: msg ? msg : "确认失败",
+          title: msg ? msg : "支付失败",
         });
-        wx.hideLoading();
       }
     });
   }

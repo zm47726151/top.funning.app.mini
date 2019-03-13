@@ -4,16 +4,18 @@
  */
 
 function request(cmd, data, operation) {
-  console.log("web request " + cmd, cmd);
   console.log("web request " + cmd + " data", data);
   let app = getApp();
   let cookie = "";
   app.cookie.forEach(function(value, key, map) {
     cookie = key + "=" + value + ";" + cookie;
   });
-  console.log("web request " + cmd + " cookie", cookie);
+  console.log("WebRequest.cmd", cmd);
+  console.log("WebRequest.data", data);
+  console.log("WebRequest.cookie", cookie);
   wx.request({
-    url: 'https://fruits.knxy.top/api',
+    //url: 'https://fruits.knxy.top/api',
+    url: 'http://127.0.0.1:8080/api',
     data: {
       "cmd": cmd,
       "data": data,
@@ -24,9 +26,13 @@ function request(cmd, data, operation) {
     method: 'POST',
     dataType: 'json',
     success: function(res) {
-      console.log("web request " + cmd + " success", res);
-      setCookies(res);
+      console.log("WebRequest.success", res);
+      if(res.statusCode!=200){
+        operation.fail(-1000, "网络请求失败");
+        return;
+      }
 
+      setCookies(res);
       let d = res.data;
       if (d.code > 0) {
         operation.success(d.data);
@@ -44,10 +50,9 @@ function request(cmd, data, operation) {
           operation.fail(d.code, d.msg);
         }
       }
-
     },
     fail: function(res) {
-      console.log("web request " + cmd + " fail", res);
+      console.log("WebRequest.fail", res);
       setCookies(res);
       operation.fail(-1000, "网络请求失败");
     }
@@ -74,7 +79,7 @@ function login(cmd, data, operation) {
         operation.fail("-1", "登录失败");
       }
     },
-    fail: function (res) {
+    fail: function(res) {
       operation.fail("-1", "登录失败");
     }
   });

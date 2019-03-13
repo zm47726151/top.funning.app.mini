@@ -59,6 +59,7 @@ Page({
           image: "image/waitPay.png"
         };
       case "2":
+      case "7":
         return {
           color: "#8bc34a",
           image: "image/doing.png"

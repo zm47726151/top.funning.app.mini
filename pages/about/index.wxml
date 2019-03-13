@@ -23,7 +23,7 @@
     <image class="arrow" src='/image/about/arrow.png'></image>
   </button>
   <view class="line"></view>
-  <button bindtap='toKnxy' class="item">
+  <button bindtap='toKnxy' class="item hide">
     <text class="globle_text_3">关于 昕阳光</text>
     <image class="arrow" src='/image/about/arrow.png'></image>
   </button>

@@ -10,7 +10,7 @@
 
     <view class="content" style="bottom: {{shopcarVisibility == 'show'?'100rpx':'0rpx'}}">
       <scroll-view class="category bg_grey" scroll-y="true">
-        <view bindtap='typeCLick' wx:key="{{item.id}}" data-id='{{item.id}}' class="globle_text_3 {{item.active == 'true'?'bg_white text_color_orange':'text_color_grey'}}" wx:for="{{dataList}}">
+        <view bindtap='typeCLick' wx:key="{{item.id}}" data-id='{{item.id}}' class="globle_text_2 {{item.active == 'true'?'bg_white text_color_orange':'text_color_grey'}}" wx:for="{{dataList}}">
           {{item.name}}
         </view>
       </scroll-view>
@@ -19,7 +19,7 @@
           <view class="item">
             <image class="image" src="{{item.imageUrl}}"></image>
             <view class="info">
-              <text class="name globle_text_4">{{item.name}}</text>
+              <text class="name globle_text_3">{{item.name}}</text>
               <text class="description globle_text_1 text_color_grey">{{item.description}}</text>
               <view class="bottom">
                 <text class="price globle_text_2 text_color_red">¥{{item.price}}</text>
