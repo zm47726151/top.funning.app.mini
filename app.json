@@ -15,7 +15,7 @@
     "pages/group/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ff9800",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "KFS"

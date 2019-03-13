@@ -213,7 +213,7 @@ Page({
     }, {
       success: function(data) {
         wx.hideLoading();
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../detail/index?id=' + id,
         });
       },

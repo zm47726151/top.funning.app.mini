@@ -15,14 +15,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
+    this.setData({
+      "state": 'load',
+    });
     this.getData();
   },
   getData: function() {
     let that = this;
-    that.setData({
-      "state": 'load',
-    });
     web.request("C1005", {}, {
       success: function(data) {
         console.log(data);
@@ -34,6 +34,7 @@ Page({
           "state": 'show',
           "orders": data.orders
         });
+        wx.stopPullDownRefresh();
       },
       fail: function(code, msg) {
         console.log(msg);
@@ -41,6 +42,7 @@ Page({
           "state": 'error',
           "errorMsg": msg
         });
+        wx.stopPullDownRefresh();
       }
     });
   },
@@ -77,7 +79,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.getData();
   },
 
   /**
