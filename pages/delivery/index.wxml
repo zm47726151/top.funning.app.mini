@@ -1,13 +1,6 @@
 <!--index.wxml-->
 <view>
   <view wx:if="{{state == 'show'}}" class="container bg_white">
-    <view class="header">
-      <view class='edit bg_grey'>
-        <text class="globle_text_2 text_color_grey">配送至：广州市天河区黄埔大道中283号110房,123321</text>
-        <image src='/image/delivery/arrow.png'></image>
-      </view>
-    </view>
-
     <view class="content" style="bottom: {{shopcarVisibility == 'show'?'100rpx':'0rpx'}}">
       <scroll-view class="category bg_grey" scroll-y="true">
         <view bindtap='typeCLick' wx:key="{{item.id}}" data-id='{{item.id}}' class="globle_text_2 {{item.active == 'true'?'bg_white text_color_orange':'text_color_grey'}}" wx:for="{{dataList}}">

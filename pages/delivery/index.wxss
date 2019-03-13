@@ -39,7 +39,7 @@
 
 .content {
   position: absolute;
-  top: 85rpx;
+  top: 0rpx;
   right: 0;
   left: 0;
   bottom: 100rpx;
