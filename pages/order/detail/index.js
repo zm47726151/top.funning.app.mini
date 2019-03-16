@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
     this.setData({
       "orderId": options.id
     });
@@ -33,8 +34,12 @@ Page({
       success: function(data) {
         let titleStyle = that.getTitleStyle(data.state);
         wx.setNavigationBarColor({
-          frontColor: '#ffffff', // 必写项
-          backgroundColor: titleStyle.color, // 必写项
+          frontColor: '#ffffff',
+          backgroundColor: titleStyle.color,
+        });
+        wx.setBackgroundColor({
+          backgroundColorTop: titleStyle.color,
+          backgroundColorBottom: '#f4f4f4', 
         });
         that.setData({
           "state": "show",
@@ -134,7 +139,7 @@ Page({
     wx.setClipboardData({
       data: e.currentTarget.dataset.text,
       success: function(res) {
-        
+
       }
     })
   },
