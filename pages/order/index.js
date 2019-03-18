@@ -15,7 +15,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       "state": 'load',
     });
@@ -27,7 +27,7 @@ Page({
       success: function(data) {
         console.log(data);
         if (!data.orders || data.orders.length < 1) {
-          this.fail("-1","没有订单");
+          this.fail("-1", "没有订单");
           return;
         }
         that.setData({

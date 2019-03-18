@@ -7,23 +7,38 @@
 }
 
 .header {
-  padding: 15rpx;
-  height: 55rpx;
+  height: 83rpx;
+  width: 100%;
   border-bottom-style: solid;
   border-bottom-color: #eee;
   border-bottom-width: 1rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .header .edit {
   display: flex;
+  margin-right: 15rpx;
+  margin-left: 15rpx;
+  margin-bottom: 15rpx;
+  margin-top: 15rpx;
+  flex-grow: 1;
+  border-radius: 5rpx;
   flex-direction: row;
   align-items: center;
 }
 
+.header .edit:active{
+  background-color: #eee;
+}
+
 .header .edit image {
-  width: 21rpx;
-  height: 25rpx;
-  margin-right: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 15rpx;
 }
 
 .header text {
@@ -39,7 +54,7 @@
 
 .content {
   position: absolute;
-  top: 0rpx;
+  top: 85rpx;
   right: 0;
   left: 0;
   bottom: 100rpx;

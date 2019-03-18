@@ -3,6 +3,7 @@
     "pages/delivery/index",
     "pages/delivery/good/detail/index",
     "pages/delivery/good/pay/index",
+    "pages/delivery/good/search/index",
     "pages/order/detail/index",
     "pages/order/confirm/index",
     "pages/order/index",
@@ -23,7 +24,7 @@
   "tabBar": {
     "position": "bottom",
     "selectedColor": "#f57c00",
-    "color": "#ffa726",
+    "color": "#999999",
     "list": [
       {
         "pagePath": "pages/delivery/index",

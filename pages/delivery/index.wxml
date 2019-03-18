@@ -1,6 +1,13 @@
 <!--index.wxml-->
 <view>
   <view wx:if="{{state == 'show'}}" class="container bg_white">
+    <view class="header">
+      <view bindtap='search' class='edit bg_grey'>
+        <image src='/image/delivery/search.png'></image>
+        <text class="globle_text_2 text_color_grey">搜索</text>
+      </view>
+    </view>
+
     <view class="content" style="bottom: {{shopcarVisibility == 'show'?'100rpx':'0rpx'}}">
       <scroll-view class="category bg_grey" scroll-y="true">
         <view bindtap='typeCLick' wx:key="{{item.id}}" data-id='{{item.id}}' class="globle_text_2 {{item.active == 'true'?'bg_white text_color_orange':'text_color_grey'}}" wx:for="{{dataList}}">

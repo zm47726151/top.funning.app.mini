@@ -1,0 +1,85 @@
+/* pages/delivery/good/search/index.wxss */
+
+
+.header {
+  height: 83rpx;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-color: #eee;
+  border-bottom-width: 1rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.header .edit {
+  display: flex;
+  margin-right: 15rpx;
+  margin-left: 15rpx;
+  margin-bottom: 15rpx;
+  margin-top: 15rpx;
+  flex-grow: 1;
+  border-radius: 5rpx;
+  flex-direction: row;
+  align-items: center;
+}
+ 
+.header .edit image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 15rpx;
+}
+
+.header input {
+  padding: 5rpx 5rpx 5rpx 15rpx;
+  line-height: 55rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex-grow: 1;
+}
+
+.loading{
+  padding: 30rpx 0rpx 30rpx 0rpx;
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  padding: 15rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom-style: solid;
+  border-bottom-color: #eee;
+  border-bottom-width: 1rpx;
+  align-items: stretch;
+}
+
+.item:active{
+  background-color: #fefefe;
+}
+
+.item image{
+  width: 190rpx;
+  height: 190rpx;
+}
+
+.item .text{
+  display: flex;
+  flex-grow: 1;
+  padding-left: 15rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch
+}
+
+.item .text .price{
+  text-align: right;
+}

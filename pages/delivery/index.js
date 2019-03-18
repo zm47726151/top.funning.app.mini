@@ -355,5 +355,10 @@ Page({
     wx.navigateTo({
       url: 'good/detail/index?id=' + res.currentTarget.dataset.id,
     })
+  },
+  search: function() {
+    wx.navigateTo({
+      url: 'good/search/index',
+    })
   }
 })

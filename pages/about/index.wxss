@@ -1,3 +1,4 @@
+
 .item {
   padding-left: 15rpx;
   padding-right: 30rpx;
@@ -71,11 +72,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
 }
 
 .company_info {
