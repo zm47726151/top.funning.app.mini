@@ -181,7 +181,7 @@ Page({
     });
   },
 
-  shopListAdd: function(res) { 
+  shopListAdd: function(res) {
     let id = res.currentTarget.dataset.id;
     let shopList = app.shopList;
 
@@ -214,7 +214,7 @@ Page({
     });
     app.shopList = shopList;
   },
-  shopListReduce: function (res) {
+  shopListReduce: function(res) {
     let id = res.currentTarget.dataset.id;
     let shopList = app.shopList;
 
@@ -298,6 +298,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
-  }
+    let app = getApp();
+    let title = this.data.name + "--" + app.appName;
+    let imageUrl = this.data.header.imageList[0];
+    return {
+      title: title,
+      //path: '/pages/delivery/index',
+      imageUrl: imageUrl
+    }
+  },
 })

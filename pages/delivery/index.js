@@ -360,5 +360,12 @@ Page({
     wx.navigateTo({
       url: 'good/search/index',
     })
+  },
+  onShareAppMessage: function() {
+    return {
+      title: 'KFS',
+      path: '/pages/delivery/index',
+      imageUrl: '/image/logo.png'
+    }
   }
 })
