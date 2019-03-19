@@ -30,7 +30,7 @@
   align-items: center;
 }
 
-.header .edit:active{
+.header .edit:active {
   background-color: #eee;
 }
 
@@ -204,8 +204,6 @@
   flex-direction: column-reverse;
 }
 
- 
-
 .shop_list_header {
   padding: 15rpx;
   display: flex;
@@ -225,10 +223,9 @@
   align-items: center;
 }
 
-.shop_list scroll-view{
+.shop_list scroll-view {
   max-height: 500rpx;
 }
-
 
 .shop_list_item {
   display: flex;
@@ -263,4 +260,33 @@
   width: 41rpx;
   padding-right: 20rpx;
   height: 41rpx;
+}
+
+.poster_container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #00000066;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster_container image {
+  width: 640rpx;
+  border-radius: 15rpx;
+  margin-bottom: 60rpx;
+}
+
+.poster_container .close {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: -30rpx;
+  z-index: 100;
+  padding-right: 30rpx;
+  padding-left: 30rpx;
+  align-self: flex-end;
 }

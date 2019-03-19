@@ -7,11 +7,7 @@
  * 3. 更新 good List 中的数量
  * 4. 生成 current type
  * 
- * 
  * 每一次更新 shop list 都要同步到 app.shopList
- * 
- * 
- * 
  */
 
 const app = getApp()
@@ -35,7 +31,6 @@ Page({
     "shoplistVisibility": ""
   },
   onLoad: function() {
-
     this.getData();
   },
   getData: function() {
@@ -50,7 +45,8 @@ Page({
         that.setData({
           "dataList": dataList,
           "currentType": dataList[0],
-          "state": "show"
+          "state": "show",
+          "postImageUrl": data.postImageUrl
         });
         that.dataInit();
       },
@@ -367,5 +363,10 @@ Page({
       path: '/pages/delivery/index',
       imageUrl: '/image/logo.png'
     }
+  },
+  posterClose: function() {
+    this.setData({
+      postImageUrl: false
+    });
   }
 })

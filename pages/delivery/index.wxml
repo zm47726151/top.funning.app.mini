@@ -86,4 +86,8 @@
     <text>{{errorMsg}}</text>
     <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
   </view>
+  <view wx:if="{{postImageUrl}}" catchtap='posterClose' class="poster_container">
+    <image src='{{postImageUrl}}' mode='widthFix'></image>
+    <image src="/image/delivery/close.png" catchtap="posterClose" class="close"></image>
+  </view>
 </view>
