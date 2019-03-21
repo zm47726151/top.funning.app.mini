@@ -1,6 +1,7 @@
 // pages/order/confirm/index.js
 
-let wq = require("../../../common/web.js");
+const wq = require("../../../common/web.js");
+const addrUtils = require("../../../common/address.js");
 
 Page({
 
@@ -118,18 +119,34 @@ Page({
     let that = this;
     wx.chooseAddress({
       success(res) {
-        that.setData({
-          "address": {
-            "userName": res.userName,
-            "postalCode": res.postalCode,
-            "provinceName": res.provinceName,
-            "cityName": res.cityName,
-            "countyName": res.countyName,
-            "detailInfo": res.detailInfo,
-            "nationalCode": res.nationalCode,
-            "telNumber": res.telNumber
+        let address = {
+          "userName": res.userName,
+          "postalCode": res.postalCode,
+          "provinceName": res.provinceName,
+          "cityName": res.cityName,
+          "countyName": res.countyName,
+          "detailInfo": res.detailInfo,
+          "nationalCode": res.nationalCode,
+          "telNumber": res.telNumber
+        }
+        addrUtils.computer({
+          "price": that.data.price,
+          "address": address,
+          onSuccess: function(poster) {
+
+            that.setData({
+              "address": address,
+              "poster": poster,
+              "amount": (Number(that.data.price) + Number(poster)),
+              "addressExist": true
+            });
           },
-          "addressExist": true
+          onFail: function(msg) {
+            wx.showToast({
+              image: "/image/failure.png",
+              title: '计算运费失败',
+            })
+          }
         });
       },
       fail(res) {
