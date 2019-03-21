@@ -16,9 +16,6 @@ function computer(parameter) {
         xygLocation.lng,
         xygLocation.lat
       )
-      console.log(res.data.result.location)
-      console.log(xygLocation)
-      console.log(distance)
       if (distance < 10 && parameter.price > 30) {
         parameter.onSuccess(0);
       }else{
