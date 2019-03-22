@@ -129,11 +129,14 @@ Page({
           "nationalCode": res.nationalCode,
           "telNumber": res.telNumber
         }
+        wx.showLoading({
+          title: '处理中',
+        })
         addrUtils.computer({
           "price": that.data.price,
           "address": address,
           onSuccess: function(poster) {
-
+            wx.hideLoading();
             that.setData({
               "address": address,
               "poster": poster,
@@ -142,6 +145,7 @@ Page({
             });
           },
           onFail: function(msg) {
+            wx.hideLoading();
             wx.showToast({
               image: "/image/failure.png",
               title: '计算运费失败',
