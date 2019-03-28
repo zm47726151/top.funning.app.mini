@@ -1,1 +1,68 @@
 /* pages/group/index.wxss */
+
+.item {
+  padding-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.item .content {
+  width: 690rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 15rpx;
+  box-shadow: 0px 5rpx 15rpx 5rpx #ddd;
+}
+
+.item .content image {
+  width: 690rpx;
+  border-top-right-radius: 15rpx;
+  border-top-left-radius: 15rpx;
+}
+
+.item .content .title {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.item .content .description {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+
+.item .content .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 15rpx;
+}
+
+.item .content .bottom .price {
+  padding: 0rpx;
+}
+
+.item .content .bottom .button {
+  background-color: #ffa726;
+  padding: 6rpx 20rpx 6rpx 20rpx;
+  border-radius: 60rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.item .content .bottom .button image {
+  width: 12rpx;
+  height: 20rpx;
+  margin-left: 15rpx;
+}
+
+.item .content .bottom .button:active {
+  background-color: #ff9800;
+}

@@ -1,2 +1,19 @@
 <!--pages/group/index.wxml-->
-<text>pages/group/index.wxml</text>
+<view style='padding-bottom:30rpx;' class="bg_grey">
+  <view wx:for="{{[1,2,3]}}" class="item">
+    <view catchtap='toDetail' class="content bg_white">
+      <image src='/temporary/group.png' mode="widthFix"></image>
+
+      <text class="title globle_text_3">[ 99！元3斤 ] A级-红宝玉草莓(大)娇艳欲滴</text>
+      <text class="description text_color_grey globle_text_2">1份约3斤</text>
+      <view class="bottom">
+        <text class="price text_color_red globle_text_4">¥99.00</text>
+        <view catchtap='toDetail' class="button text_color_white globle_text_2">
+        去评团<image src="image/arrow.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

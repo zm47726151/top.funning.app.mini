@@ -1,0 +1,74 @@
+<!--pages/group/detail/index.wxml-->
+<view>
+  <view>
+    <scroll-view class="container" scroll-Y="true">
+      <swiper indicator-dots="true" indicator-color="#ffe0b2" indicator-active-color="#ff9800" autoplay="true" class="pictures">
+        <block wx:for="{{header.imageList}}" wx:key="{{item.id}}">
+          <swiper-item>
+            <image item-id="{{item.index}}" src="{{item}}" style='width:750rpx; height:750rpx'></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="name globle_text_5">{{name}}</view>
+      <view class="description globle_text_3 text_color_grey">{{description}}</view>
+
+      <view class="operation">
+        <view class="price globle_text_4 text_color_red">¥{{price}}</view>
+        <view class="amount_container">
+          <image catchtap='goodReduce' class="change reduce" src="/image/delivery/reduce.png"></image>
+          <view class="amount globle_text_3 text_color_orange">{{amount}}</view>
+          <image catchtap='goodAdd' class="change add" src="/image/delivery/add.png"></image>
+        </view>
+      </view>
+
+      <view class="line"></view>
+      <view class="title">
+        <view class="globle_text_2 text_color_grey">
+          <image src="/image/delivery/good/detail/line2.png"></image>商品详情
+          <image src="/image/delivery/good/detail/line1.png"></image>
+        </view>
+      </view>
+      <image wx:for="{{detail.imageList}}" wx:key="{{index}}" src="{{item}}" mode='widthFix' style="width:750rpx;"></image>
+    </scroll-view>
+
+    <view wx:if="{{goodAmount>0}}" catchtap='showShoplist' class="shop_car">
+      <image class='shop_car_image' src="/image/delivery/shopcar.png"></image>
+      <view class='point globle_text_1'>{{goodAmount}}</view>
+      <view class="price">
+        <view class='globle_text_4 text_color_red'>
+          {{priceAmount}}
+        </view>
+        <view class='globle_text_1 text_color_grey'>
+          不含运费
+        </view>
+      </view>
+      <view catchtap='comfirm' class="pay globle_text_3">去结算</view>
+    </view>
+
+    <view wx:if="{{shoplistVisibility}}" catchtap='hideShoplist' class='shop_list bg_floating'>
+      <view catchtap="showShoplist" class="shop_list_content bg_white">
+
+        <view class="shop_list_header bg_grey">
+          <text class="globle_text_3">已选商品</text>
+
+          <view catchtap='clearShopList' class="garbage">
+            <image src="/image/delivery/garbage.png"></image>
+            <text class="globle_text_3 text_color_grey">清空</text>
+          </view>
+        </view>
+        <scroll-view scroll-y="true">
+          <view wx:for="{{shopList}}" wx:key="{{item.body.id}}">
+            <view class="shop_list_item">
+              <text class="name globle_text_3">{{item.body.name}}</text>
+              <text class="price text_color_orange globle_text_3">￥{{item.body.price}}</text>
+              <image catchtap='shopListReduce' data-id='{{item.body.id}}' class="change reduce" src="/image/delivery/reduce.png"></image>
+              <view class="amount globle_text_2 text_color_orange">{{item.amount}}</view>
+              <image catchtap='shopListAdd' data-id='{{item.body.id}}' class="change add" src="/image/delivery/add.png"></image>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+ 
+</view>

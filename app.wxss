@@ -36,6 +36,10 @@ input {
   color: #333;
 }
 
+.text_color_white {
+  color: #fff;
+}
+
 .text_color_black {
   color: #333;
 }

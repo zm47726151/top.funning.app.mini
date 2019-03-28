@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/group/index",
+    "pages/group/detail/index",
     "pages/delivery/index",
     "pages/delivery/good/detail/index",
     "pages/delivery/good/pay/index",
@@ -12,8 +14,7 @@
     "pages/about/xyg/index",
     "pages/about/address/edit/index",
     "pages/about/address/index",
-    "pages/about/address/add/index",
-    "pages/group/index"
+    "pages/about/address/add/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -32,7 +33,12 @@
         "selectedIconPath": "image/tabbars/delivery.png",
         "text": "外卖"
       },
-      
+      {
+        "pagePath": "pages/group/index",
+        "iconPath": "image/tabbars/group1.png",
+        "selectedIconPath": "image/tabbars/group.png",
+        "text": "拼团"
+      },
       {
         "pagePath": "pages/order/index",
         "iconPath": "image/tabbars/order1.png",

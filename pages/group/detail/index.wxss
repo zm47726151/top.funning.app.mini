@@ -1,0 +1,218 @@
+/* pages/group/detail/index.wxss */
+
+
+.container {
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 100rpx;
+}
+
+.container .pictures {
+  height: 750rpx;
+}
+
+.container .name {
+  padding: 15rpx;
+}
+
+.container .description {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+
+.container .operation {
+  padding: 15rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.container .operation .price {
+  flex-grow: 1;
+}
+
+.container .operation .amount_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container .operation .amount_container .change {
+  width: 41rpx;
+  height: 41rpx;
+}
+
+.container .operation .amount_container .add {
+  padding-left: 30rpx;
+}
+
+.container .operation .amount_container .reduce {
+  padding-right: 30rpx;
+}
+
+.line {
+  height: 15rpx;
+}
+
+.container .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.container .title view {
+  display: flex;
+  padding-left:30rpx;
+  padding-right: 30rpx; 
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .title image {
+  height: 3rpx;
+  width: 90rpx;
+}
+
+.container .title view {
+  background: #ffe0b2;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  text-align: center;
+  width: 350rpx;
+  border-radius: 90rpx;
+}
+
+.shop_car {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100rpx;
+  border-top-style: solid;
+  border-top-width: 1rpx;
+  border-top-color: #eee;
+  display: flex;
+  background: #ffffff;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 30rpx;
+}
+
+.shop_car .point {
+  align-self: flex-start;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border-radius: 81rpx;
+  color: #fff;
+  background: #f36c60;
+  margin-top: 10rpx;
+  margin-left: -20rpx;
+}
+
+.shop_car .price {
+  flex-grow: 1;
+  padding-left: 30rpx;
+}
+
+.shop_car .shop_car_image {
+  height: 70rpx;
+  width: 70rpx;
+  align-items: flex-end;
+}
+
+.shop_car .pay {
+  background-color: #ffa726;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.shop_car .pay:active {
+  background: #fb8c00;
+}
+
+.shop_car image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+
+.shop_list {
+  position: absolute;
+  bottom: 100rpx;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+ 
+
+.shop_list_header {
+  padding: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.shop_list_header image {
+  height: 35rpx;
+  width: 35rpx;
+  margin-right: 15rpx;
+}
+
+.shop_list_header .garbage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.shop_list scroll-view{
+  max-height: 500rpx;
+}
+
+
+.shop_list_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15rpx;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+  border-bottom-color: #eee;
+}
+
+.shop_list_item .name {
+  width: 350rpx;
+}
+
+.shop_list_item .price {
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  width: 200rpx;
+}
+
+.shop_list_item .change {
+  width: 41rpx;
+  padding: 15rpx;
+  height: 41rpx;
+}
+
+.shop_list_item .reduce {
+  width: 41rpx;
+  padding-left: 20rpx;
+  height: 41rpx;
+}
+
+.shop_list_item .reduce {
+  width: 41rpx;
+  padding-right: 20rpx;
+  height: 41rpx;
+}
