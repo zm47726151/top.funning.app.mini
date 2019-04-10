@@ -1,7 +1,7 @@
 <!--pages/delivery/good/detail/index.wxml-->
 <view>
   <view wx:if="{{state == 'show'}}">
-    <scroll-view class="container" scroll-Y="true">
+    <scroll-view class="content" scroll-Y="true">
       <swiper indicator-dots="true" indicator-color="#ffe0b2" indicator-active-color="#ff9800" autoplay="true" class="pictures">
         <block wx:for="{{header.imageList}}" wx:key="{{item.id}}">
           <swiper-item>
@@ -29,6 +29,7 @@
         </view>
       </view>
       <image wx:for="{{detail.imageList}}" wx:key="{{index}}" src="{{item}}" mode='widthFix' style="width:750rpx;"></image>
+      <view wx:if="{{goodAmount>0}}" style="height:100rpx;"></view>
     </scroll-view>
 
     <view wx:if="{{goodAmount>0}}" catchtap='showShoplist' class="shop_car">

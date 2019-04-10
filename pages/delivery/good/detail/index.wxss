@@ -1,61 +1,57 @@
 /* pages/delivery/good/detail/index.wxss */
 
 
-.container {
+.content {
   position: absolute;
   top:0;
   left: 0;
   right: 0;
-  bottom: 100rpx;
+  bottom: 0rpx;
 }
 
-.container .pictures {
+.content .pictures {
   height: 750rpx;
 }
 
-.container .name {
+.content .name {
   padding: 15rpx;
 }
 
-.container .description {
+.content .description {
   padding-left: 15rpx;
   padding-right: 15rpx;
 }
 
-.container .operation {
+.content .operation {
   padding: 15rpx;
   display: flex;
   flex-direction: row;
 }
 
-.container .operation .price {
+.content .operation .price {
   flex-grow: 1;
 }
 
-.container .operation .amount_container {
+.content .operation .amount_container {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.container .operation .amount_container .change {
+.content .operation .amount_container .change {
   width: 41rpx;
   height: 41rpx;
 }
 
-.container .operation .amount_container .add {
+.content .operation .amount_container .add {
   padding-left: 30rpx;
 }
 
-.container .operation .amount_container .reduce {
+.content .operation .amount_container .reduce {
   padding-right: 30rpx;
 }
 
-.line {
-  height: 15rpx;
-}
-
-.container .title {
+.content .title {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -63,7 +59,7 @@
   margin-bottom: 15rpx;
 }
 
-.container .title view {
+.content .title view {
   display: flex;
   padding-left:30rpx;
   padding-right: 30rpx; 
@@ -72,12 +68,12 @@
   align-items: center;
 }
 
-.container .title image {
+.content .title image {
   height: 3rpx;
   width: 90rpx;
 }
 
-.container .title view {
+.content .title view {
   background: #ffe0b2;
   padding-top: 15rpx;
   padding-bottom: 15rpx;
@@ -85,6 +81,11 @@
   width: 350rpx;
   border-radius: 90rpx;
 }
+/******************************/
+.line {
+  height: 15rpx;
+}
+/******************************/
 
 .shop_car {
   position: absolute;

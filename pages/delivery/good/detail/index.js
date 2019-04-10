@@ -166,17 +166,17 @@ Page({
     }, {
       success: function(data) {
         console.log(data);
+        wx.hideLoading();
         wx.navigateTo({
           url: '/pages/order/confirm/index?id=' + data.id,
         });
-        wx.hideLoading();
       },
       fail: function(code, msg) {
+        wx.hideLoading();
         wx.showToast({
           title: msg,
           image: "/image/failure.png"
         });
-        wx.hideLoading();
       }
     });
   },
