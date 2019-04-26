@@ -1,18 +1,35 @@
 // pages/group/index.js
+
+const web = require("../../common/web.js");
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    "state": "load"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let that = this;
+    web.request("C1014", {}, {
+      success: function(data) {
+        that.setData({
+          "state": "show",
+          "dataList": data.dataList
+        });
+      },
+      fail: function(code, msg) {
+        that.setData({
+          "state": "error",
+          "errorMsg": msg
+        });
+      }
+    });
   },
 
   /**
@@ -67,9 +84,10 @@ Page({
       imageUrl: '/image/logo.png'
     }
   },
-  toDetail: function() { 
+  toDetail: function(p) {
+    console.log(p.currentTarget.dataset.id);
     wx.navigateTo({
-      url: 'detail/index',
+      url: 'detail/index?id=' + p.currentTarget.dataset.id,
     })
   }
 

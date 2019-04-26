@@ -1,5 +1,13 @@
 /* pages/group/index.wxss */
 
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; 
+}
+
 .item {
   padding-top: 30rpx;
   display: flex;

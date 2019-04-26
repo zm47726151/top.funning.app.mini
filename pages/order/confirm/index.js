@@ -190,7 +190,6 @@ Page({
       success: function(data) {
         wx.hideLoading();
         that.pay(data);
-
       },
       fail: function(code, msg) {
         wx.hideLoading();
