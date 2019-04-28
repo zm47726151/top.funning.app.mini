@@ -5,7 +5,7 @@
     "pages/delivery/index",
     "pages/delivery/good/detail/index",
     "pages/delivery/good/search/index",
-    "pages/order/detail/index",
+    "pages/order/normal/detail/index",
     "pages/order/normal/confirm/index",
     "pages/order/index",
     "pages/about/index",

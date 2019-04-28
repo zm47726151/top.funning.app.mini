@@ -1,4 +1,4 @@
-<!-- pages/order/detail/ -->
+<!-- pages/order/normal/detail/ -->
 <view>
   <scroll-view wx:if="{{state == 'show'}}" scroll-y="true">
     <view class="header" style='background-color:{{titleColor}}'>

@@ -1,4 +1,4 @@
-// pages/order/detail/index.js
+// pages/order/normal/detail/index.js
 
 let web = require("../../../common/web.js");
 
