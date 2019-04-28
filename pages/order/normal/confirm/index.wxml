@@ -18,7 +18,7 @@
           添加地址
         </view>
       </view>
-      <image class="mail_line" src="../image/line.png" mode="top"></image>
+      <image class="mail_line" src="../../image/line.png" mode="top"></image>
       <view class="title bg_white globle_text_3">商品列表</view>
       <view class="goods bg_white">
         <view class="item" wx:for="{{goodList}}" wx:key="{{item.id}}">
@@ -50,7 +50,7 @@
       </view>
 
       <view class="pay bg_white">
-        <image src="../image/pay.png"></image>
+        <image src="../../image/pay.png"></image>
         <text class='globle_text_3'>微信支付</text>
       </view>
       <view style='height:30rpx;'></view>

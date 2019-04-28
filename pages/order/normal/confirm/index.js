@@ -1,7 +1,7 @@
 // pages/order/normal/confirm/index.js
 
-const wq = require("../../../common/web.js");
-const addrUtils = require("../../../common/address.js");
+const wq = require("../../../../common/web.js");
+const addrUtils = require("../../../../common/address.js");
 
 Page({
 
@@ -234,7 +234,7 @@ Page({
       success: function(data) {
         wx.hideLoading();
         wx.redirectTo({
-          url: '../detail/index?id=' + id,
+          url: '../normal/detail/index?id=' + id,
         });
       },
       fail: function(code, msg) {

@@ -102,7 +102,7 @@ Page({
 
   toDetail: function(res) {
     wx.navigateTo({
-      url: 'detail/index?id=' + res.currentTarget.dataset.id,
+      url: 'normal/detail/index?id=' + res.currentTarget.dataset.id,
     })
   }
 })

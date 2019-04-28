@@ -10,7 +10,7 @@
       <view class="name phone globle_text_3">{{info.userName}} {{info.telNumber}}</view>
       <view class="detail globle_text_2 text_color_grey">{{info.provinceName}} {{info.cityName}} {{info.countyName}} {{info.detailInfo}}</view>
     </view>
-    <image wx:if="{{info.telNumber}}" class="mail_line" src="../image/line.png" mode="top"></image>
+    <image wx:if="{{info.telNumber}}" class="mail_line" src="../../image/line.png" mode="top"></image>
 
     <view class="title bg_white">
       <text class="globle_text_3">商品列表</text>
