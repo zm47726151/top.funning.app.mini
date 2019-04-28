@@ -27,7 +27,7 @@ function request(cmd, data, operation) {
     dataType: 'json',
     success: function(res) {
       console.log("WebRequest.success", res);
-      if(res.statusCode!=200){
+      if (res.statusCode != 200) {
         operation.fail(-1000, "网络请求失败");
         return;
       }
@@ -97,7 +97,9 @@ function setCookies(res) {
     return;
   }
 
-  cookies = res.header["Set-Cookie"];
+  if (res) {
+    cookies = res.header["Set-Cookie"];
+  }
   if (cookies) {
     let kvs = cookies.split(";");
     if (!kvs || kvs.length < 1) {
