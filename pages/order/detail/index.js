@@ -151,7 +151,7 @@ Page({
   pay: function() {
     let that = this;
     wx.navigateTo({
-      url: '../confirm/index?id=' + that.data.orderId,
+      url: '../normal/confirm/index?id=' + that.data.orderId,
     })
   },
   cancel: function() {

@@ -1,4 +1,4 @@
-<!--pages/order/confirm/index.wxml-->
+<!--pages/order/normal/confirm/index.wxml-->
 <view>
   <view wx:if="{{state == 'show'}}">
     <scroll-view scroll-y="true" class='content bg_grey'>

@@ -168,7 +168,7 @@ Page({
         console.log(data);
         wx.hideLoading();
         wx.navigateTo({
-          url: '/pages/order/confirm/index?id=' + data.id,
+          url: '/pages/order/normal/confirm/index?id=' + data.id,
         });
       },
       fail: function(code, msg) {

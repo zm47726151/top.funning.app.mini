@@ -1,4 +1,4 @@
-/* pages/order/confirm/index.wxss */
+/* pages/order/normal/confirm/index.wxss */
 
 .content {
   position: absolute;

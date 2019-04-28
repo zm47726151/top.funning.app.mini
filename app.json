@@ -6,7 +6,7 @@
     "pages/delivery/good/detail/index",
     "pages/delivery/good/search/index",
     "pages/order/detail/index",
-    "pages/order/confirm/index",
+    "pages/order/normal/confirm/index",
     "pages/order/index",
     "pages/about/index",
     "pages/about/knxy/index",

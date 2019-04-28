@@ -334,7 +334,7 @@ Page({
       success: function(data) {
         console.log(data);
         wx.navigateTo({
-          url: '/pages/order/confirm/index?id=' + data.id,
+          url: '/pages/order/normal/confirm/index?id=' + data.id,
         });
         wx.hideLoading();
       },

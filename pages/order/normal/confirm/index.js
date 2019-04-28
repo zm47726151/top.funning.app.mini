@@ -1,4 +1,4 @@
-// pages/order/confirm/index.js
+// pages/order/normal/confirm/index.js
 
 const wq = require("../../../common/web.js");
 const addrUtils = require("../../../common/address.js");
