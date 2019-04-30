@@ -17,7 +17,7 @@ Page({
     console.log(options);
     let that = this;
     web.request("C1015", {
-      id: 1
+      id: 15
     }, {
       success: function(data) {
         data.state = "show";
@@ -110,5 +110,36 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  toHome: function() {
+    wx.reLaunch({
+      url: '../index'
+    })
+  },
+
+  start: function() {
+    let id = this.data.id;
+    wx.showLoading({
+      title: '处理中...',
+    });
+    web.request("C1016", {
+      "id": id
+    }, {
+      success: function(data) {
+        console.log(data);
+        wx.hideLoading();
+        wx.navigateTo({
+          url: '/pages/order/group/confirm/index?id=' + data.id,
+        });
+      },
+      fail: function(code, msg) {
+        wx.hideLoading();
+        wx.showToast({
+          title: msg,
+          image: "/image/failure.png"
+        });
+      },
+    });
   }
 })

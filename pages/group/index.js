@@ -18,10 +18,17 @@ Page({
     let that = this;
     web.request("C1014", {}, {
       success: function(data) {
-        that.setData({
-          "state": "show",
-          "dataList": data.dataList
-        });
+        if (data.dataList.length == 0) {
+          that.setData({
+            "state": "error",
+            "errorMsg": "没有数据"
+          });
+        } else {
+          that.setData({
+            "state": "show",
+            "dataList": data.dataList
+          });
+        }
       },
       fail: function(code, msg) {
         that.setData({

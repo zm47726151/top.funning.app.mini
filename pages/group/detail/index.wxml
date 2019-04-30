@@ -43,11 +43,11 @@
   </scroll-view>
 
   <view wx:if="{{state == 'show'}}" catchtap='showShoplist' class="bottom">
-    <view class='home'>
+    <view catchtap='toHome' class='home'>
       <image src='image/home.png'></image>
       <text class='globle_text_1'>首页</text>
     </view>
-    <view class="btn_buy">¥{{price}} 一键开团</view>
+    <view catchtap="start" class="btn_buy">¥{{price}} 一键开团</view>
   </view>
 
   <view wx:elif="{{state == 'load'}}" class="lv_container">
