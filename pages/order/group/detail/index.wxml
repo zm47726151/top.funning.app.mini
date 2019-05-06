@@ -1,2 +1,7 @@
 <!--pages/order/group/detail/index.wxml-->
-<text>pages/order/group/detail/index.wxml</text>
+
+<view>
+<view>
+  撒擦三次asca
+</view>
+</view>

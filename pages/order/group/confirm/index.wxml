@@ -1,6 +1,72 @@
 <!--pages/order/group/confirm/index.wxml-->
-<view>
-  <view>
-  <view></view>
+<view class="container">
+  <view wx:if="{{state == 'show'}}">
+    <scroll-view>
+      <view class="header">
+        <view class="column1">
+          <image src="{{stateImage}}" class="headerImage">{{headerImage}}</image>
+          <text class="state globle_text_4">{{stateStr}}</text>
+        </view>
+        <view class="column2 globle_text_2">
+          <view class="groupNum ">
+            {{groupNum}}人团
+          </view>
+        </view>
+      </view>
+
+      <view class="address">
+        <view class="left">
+          <view class='text_color_grey globle_text_3' style='margin-bottom:10rpx;'>广州市天河区体育西路10086号</view>
+          <view class='text_color_grey globle_text_3'>营业时间：08:00 - 23:00</view>
+        </view>
+        <view class="right">
+          <image style='display:none' src="image/phone.png"></image>
+          <view style='display:none' class='line'></view>
+          <image style='display:none'  src="image/map.png"></image>
+        </view>
+      </view>
+      <image class="post_line" mode='scaleToFill' src='../../image/line.png'></image>
+      <view class="time">
+        <view class="globle_text_3">提货时间</view>
+        <view class="globle_text_3">{{getTime}}</view>
+      </view>
+
+      <view class="good">
+        <view class="item">
+          <image src="{{imageUrl}}"></image>
+          <view class="right">
+            <view class="name globle_text_4">{{name}}</view>
+            <view class="description globle_text_3 text_color_grey">{{description}}</view>
+            <view class='price globle_text_5 text_color_orange'>¥{{price}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="info">
+        <view class="price">
+          <text class="name globle_text_3 text_color_grey">订单金额: </text>
+          <text class="value text_color_grey globle_text_5 text_color_red">¥{{price}}</text>
+        </view>
+        <view class="createTime">
+          <text class="name text_color_grey globle_text_3">创建时间: </text>
+          <text class="value text_color_grey globle_text_3">{{createDT}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{state == 'show'}}" class="bottom">
+    <view catchtap='cancel' class="cancel globle_text_3">取消订单</view>
+    <view catchtap='contact' class="contact globle_text_3">联系客服</view>
+    <view catchtap='confirm' class="pay globle_text_3">付款 {{price}}</view>
+  </view>
+
+  <view wx:elif="{{state == 'load'}}" class="lv_container">
+    <view class="lv_point lv_point1"></view>
+    <view class="lv_point lv_point2"></view>
+    <view class="lv_point lv_point3"></view>
+  </view>
+  <view wx:elif="{{state == 'error'}}" class="ev_container">
+    <text>{{errorMsg}}</text>
+    <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
   </view>
 </view>

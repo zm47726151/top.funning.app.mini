@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/order/group/confirm/index",
     "pages/group/index",
     "pages/group/detail/index",
     "pages/delivery/index",
@@ -8,7 +9,6 @@
     "pages/order/normal/detail/index",
     "pages/order/normal/confirm/index",
     "pages/order/group/detail/index",
-    "pages/order/group/confirm/index",
     "pages/order/index",
     "pages/about/index",
     "pages/about/knxy/index",

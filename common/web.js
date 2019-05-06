@@ -14,8 +14,8 @@ function request(cmd, data, operation) {
   console.log("WebRequest.data", data);
   console.log("WebRequest.cookie", cookie);
   wx.request({
-    url: 'https://fruits.knxy.top/api',
-    //url: 'http://127.0.0.1:8080/api',
+    //url: 'https://fruits.knxy.top/api',
+    url: 'http://127.0.0.1:8080/api',
     data: {
       "cmd": cmd,
       "data": data,
@@ -94,14 +94,13 @@ function setCookies(res) {
       let cookie = cookies[i].split(";")[0].split("=");
       app.cookie.set(cookie[0], cookie[1]);
     }
-
-    console.log("fuck:");
-    console.log(cookies);
-    console.log(app.cookie);
     return;
   }
 
-  cookies = res.header["Set-Cookie"]; 
+  try{
+    cookies = res.header["Set-Cookie"]; 
+  } catch (err){
+  }
   if (cookies) {
     let kvs = cookies.split(";");
     if (!kvs || kvs.length < 1) {

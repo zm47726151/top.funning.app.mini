@@ -1,1 +1,203 @@
 /* pages/order/group/confirm/index.wxss */
+
+.container {
+  background: #eee;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  bottom: 0rpx;
+}
+
+.header {
+  background: #ff9800;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 120rpx;
+}
+
+.header .column1 {
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: row;
+  margin-right: 15rpx;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.header .column1 .headerImage {
+  height: 60rpx;
+  width: 60rpx;
+  margin-right: 15rpx;
+}
+
+.header .column1 text {
+  color: #fff;
+  font-weight: bold;
+}
+
+.header .column2 {
+  color: #fff;
+  padding-right: 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.header .column2 .groupNum {
+  padding: 5rpx 15rpx 5rpx 15rpx;
+  border-style: solid;
+  border-width: 2rpx;
+  border-radius: 50rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.header .column2 .remainderTime {
+  font-weight: bold;
+}
+
+.address {
+  padding: 15rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+.address .left {
+  flex-grow: 1;
+}
+
+.address .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+
+.address .right image {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.post_line {
+  width: 750rpx;
+  height: 40rpx;
+}
+
+.time {
+  background: #fff;
+  padding: 15rpx;
+  text-align: center;
+  margin-top: -30rpx;
+}
+
+.good {
+  margin-top: 15rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.good .item {
+  padding: 20rpx;
+  display: flex;
+  width: 750rpx;
+  flex-direction: row;
+  margin-right: 20rpx;
+  align-items: stretch;
+}
+
+.good .item image {
+  width: 271rpx;
+  height: 286rpx;
+}
+
+.good .item .right {
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+  width: 439rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.good .item .right .price {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.info {
+  background: #fff;
+  padding: 15rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 20rpx;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  background: #fff;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+
+.bottom .cancel {
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-radius: 40rpx;
+  border-width: 2rpx;
+  border-style: solid;
+  border-color: #eee;
+  margin-left: 20rpx;
+}
+
+.bottom .contact {
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-radius: 40rpx;
+  border-width: 2rpx;
+  border-style: solid;
+  border-color: #eee;
+  margin-left: 20rpx;
+}
+
+.bottom .pay {
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-radius: 40rpx;
+  margin-left: 20rpx;
+  background: #ff9800;
+  color: #fff;
+}
+
+.bottom .contact:active {
+  background: #eee;
+}
+
+.bottom .cancel:active {
+  background: #eee;
+}
+
+.bottom .pay:active {
+  background: #fb8c00;
+}
