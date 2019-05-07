@@ -186,7 +186,7 @@
   padding-bottom: 10rpx;
   border-radius: 40rpx;
   margin-left: 20rpx;
-  background: #ff9800;
+  background: #ffa726;
   color: #fff;
 }
 
@@ -199,5 +199,5 @@
 }
 
 .bottom .pay:active {
-  background: #fb8c00;
+  background: #ff9800;
 }

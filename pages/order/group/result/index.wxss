@@ -23,18 +23,20 @@
 .container .info {
   display: flex;
   flex-direction: row;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
   justify-content: space-around;
 }
 
 .container .info image {
-  width: 310rpx;
-  height: 310rpx;
+  width: 320rpx;
+  height: 320rpx;
   border-radius: 10rpx;
 }
 
 .container .info .content {
-  width: 310rpx;
-  height: 270rpx;
+  width: 320rpx;
+  height: 280rpx;
   border-radius: 10rpx;
   background: #fbf3e8;
   padding-top: 20rpx;
@@ -68,7 +70,7 @@
 }
 
 .container .user_list .item {
-  width: 150rpx;
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;

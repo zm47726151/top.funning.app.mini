@@ -25,7 +25,6 @@ Page({
       "state": "load"
     });
     let id = this.data.id;
-    id = "088a116e4c4d439bb716880d03534392";
     let that = this;
     web.request("C1017", {
       "id": id
@@ -152,6 +151,7 @@ Page({
   pay: function(p) {
     console.log(p);
     let that = this;
+    let id = this.data.id;
     wx.requestPayment({
       timeStamp: p.timeStamp,
       nonceStr: p.nonceStr,
@@ -160,7 +160,7 @@ Page({
       paySign: p.sign,
       success(res) {
         wx.navigateTo({
-          url: '../group/result/index?id=' + id,
+          url: '../result/index?id=' + id,
         })
       },
       fail(res) {
