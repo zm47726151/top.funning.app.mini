@@ -1,7 +1,64 @@
 <!--pages/order/group/detail/index.wxml-->
+<view>
+  <view wx:if="{{state == 'show'}}" class="container">
+    <view class='success'>
+      <image src="/image/success.png"></image>
+      <view class="globle_text_6">付款成功</view>
+    </view>
+    <view class="info">
+      <image src="/temporary/IMG_0002.png"></image>
+      <view class="content">
+        <view class="globle_text_4">限时抢购</view>
+        <view class="text_color_grey globle_text_2">离活动结束还有</view>
+        <view class="text_color_grey globle_text_2 time"><view class="item">42</view>小时<view class="item">38</view>分<view class="item">24</view>秒</view>
+        <view class="text_color_orange globle_text_5">¥5.90</view>
+      </view>
+    </view>
+    <view class="user_list">
+      <view class="item">
+        <image src="/temporary/IMG_0002.png"></image>
+      </view>
+      <view class="item">
+        <view>?</view>
+      </view>
+      <view class="item">
+        <view>?</view>
+      </view>
 
-<view>
-<view>
-  撒擦三次asca
-</view>
+      <view class="item">
+        <view>?</view>
+      </view>
+
+      <view class="item">
+        <view>?</view>
+      </view>
+    </view>
+    <view class="share">
+      <button open-type="share" class="button globle_text_4">邀请好友参团</button>
+      <view class="note globle_text_2 text_color_grey">分享到2个微信群，成功率高达99%</view>
+    </view>
+    <view class="dialog">
+      <view class="choice_list">
+        <view class="item">
+          <image src="image/friend.png"></image>
+          <view class="globle_text_2">分享给好友</view>
+        </view>
+        <view class="item">
+          <image src="image/poster.png"></image>
+          <view class="globle_text_2">发海报</view>
+        </view>
+      </view>
+      <view class="button">取消</view>
+    </view>
+  </view>
+
+  <view wx:elif="{{state == 'load'}}" class="lv_container">
+    <view class="lv_point lv_point1"></view>
+    <view class="lv_point lv_point2"></view>
+    <view class="lv_point lv_point3"></view>
+  </view>
+  <view wx:elif="{{state == 'error'}}" class="ev_container">
+    <text>{{errorMsg}}</text>
+    <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
+  </view>
 </view>

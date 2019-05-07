@@ -14,10 +14,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options);
+    let data = {};
+    data.id = options.id;
+    if (options.teamId) {
+      data.teamId = options.teamId;
+      data.buttonValue = "参团";
+    }else{
+      data.buttonValue = "开团";
+    }
+    this.setData(data);
+
+    this.getData();
+  },
+  getData: function() {
+
+    this.setData({
+      "state": "load"
+    })
     let that = this;
+    let id = this.data.id;
     web.request("C1015", {
-      id: 15
+      "id": id
     }, {
       success: function(data) {
         data.state = "show";
@@ -38,7 +55,7 @@ Page({
           "errorMsg": msg
         });
       }
-    })
+    });
   },
   showEndTime: function() {
     let that = this;
@@ -120,6 +137,7 @@ Page({
 
   start: function() {
     let id = this.data.id;
+    let teamId = this.data.teamId;
     wx.showLoading({
       title: '处理中...',
     });

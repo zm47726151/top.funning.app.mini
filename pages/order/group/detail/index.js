@@ -5,16 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      "id": options.id
+    })
+    this.getData();
   },
-
+  getData:function(){
+    this.setData({
+      "state": "show"
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -61,6 +68,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
-  }
+    return {
+      title: '自定义转发标题',
+      path: '/page/user?id=123',
+      imageUrl:"fuck"
+    }
+  } 
 })
