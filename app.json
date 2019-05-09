@@ -2,6 +2,7 @@
   "pages": [
     "pages/group/index",
     "pages/group/detail/index",
+    "pages/about/index",
     "pages/delivery/index",
     "pages/delivery/good/detail/index",
     "pages/delivery/good/search/index",
@@ -10,7 +11,6 @@
     "pages/order/group/confirm/index",
     "pages/order/group/result/index",
     "pages/order/index",
-    "pages/about/index",
     "pages/about/knxy/index",
     "pages/about/xyg/index",
     "pages/about/address/edit/index",

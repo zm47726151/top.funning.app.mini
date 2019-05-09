@@ -1,5 +1,6 @@
 // pages/group/detail/index.js
 const web = require("../../../common/web.js");
+let userInfo = {};
 
 Page({
 
@@ -19,11 +20,10 @@ Page({
     if (options.teamId) {
       data.teamId = options.teamId;
       data.buttonValue = "参团";
-    }else{
+    } else {
       data.buttonValue = "开团";
     }
     this.setData(data);
-
     this.getData();
   },
   getData: function() {
@@ -34,7 +34,7 @@ Page({
     let that = this;
     let id = this.data.id;
     web.request("C1015", {
-      "id": id
+      "id": id,
     }, {
       success: function(data) {
         data.state = "show";
@@ -135,14 +135,29 @@ Page({
     })
   },
 
+  getUserInfo: function(res) {
+    userInfo = res.detail.userInfo;
+    this.start();
+  },
+
   start: function() {
+    console.log(userInfo);
     let id = this.data.id;
     let teamId = this.data.teamId;
     wx.showLoading({
       title: '处理中...',
     });
+    this.postOrder(id, teamId);
+  },
+
+  postOrder: function(id, teamId) {
+    let that = this;
     web.request("C1016", {
-      "id": id
+      "orderInfo": {
+        "id": id,
+        "teamId": teamId
+      },
+      "userInfo": userInfo
     }, {
       success: function(data) {
         console.log(data);
@@ -153,10 +168,26 @@ Page({
       },
       fail: function(code, msg) {
         wx.hideLoading();
-        wx.showToast({
-          title: msg,
-          image: "/image/failure.png"
-        });
+        if (code == "-1001") {
+          wx.showModal({
+            title: '拼团失败',
+            content: '这个团已经满了，是否需要新开一个团？',
+            confirmText: "重新开团",
+            cancelText: "取消",
+            success: function(res) {
+              if (res.confirm) {
+                that.postOrder(id);
+              } else if (res.cancel) {
+
+              }
+            }
+          });
+        } else {
+          wx.showToast({
+            title: msg,
+            image: "/image/failure.png"
+          });
+        }
       },
     });
   }

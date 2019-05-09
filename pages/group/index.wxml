@@ -9,7 +9,7 @@
         <text class="description text_color_grey globle_text_2">{{item.description}}</text>
         <view class="bottom">
           <text class="price text_color_red globle_text_4">¥{{item.price}}</text>
-          <view catchtap='toDetail' class="button text_color_white globle_text_2">
+          <view catchtap='toDetail' data-id='{{item.id}}' class="button text_color_white globle_text_2">
             去拼团
             <image src="image/arrow.png"></image>
           </view>
@@ -25,6 +25,6 @@
   </view>
   <view wx:elif="{{state == 'error'}}" class="ev_container">
     <text>{{errorMsg}}</text>
-    <view bindtap='onLoad' class="button text_color_orange globle_text_2">点击重试</view>
+    <view bindtap='getData' class="button text_color_orange globle_text_2">点击重试</view>
   </view>
 </view>

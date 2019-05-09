@@ -155,6 +155,7 @@
   font-weight: bolder;
   display: flex;
   align-items: center;
+  border-radius: 0;
   justify-content: center;
 }
 

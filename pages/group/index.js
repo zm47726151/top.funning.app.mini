@@ -8,16 +8,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "state": "load"
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.getData();
+  },
+  getData: function () {
     let that = this;
+    this.setData({
+      "state": "load"
+    });
     web.request("C1014", {}, {
-      success: function(data) {
+      success: function (data) {
         if (data.dataList.length == 0) {
           that.setData({
             "state": "error",
@@ -30,7 +36,7 @@ Page({
           });
         }
       },
-      fail: function(code, msg) {
+      fail: function (code, msg) {
         that.setData({
           "state": "error",
           "errorMsg": msg
@@ -38,7 +44,6 @@ Page({
       }
     });
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

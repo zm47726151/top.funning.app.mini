@@ -25,15 +25,13 @@ Page({
       "state": "load"
     });
     let that = this;
-    let id = this.data.id;
-    id = "30707f708130428783b3515142151d0e";
-
+    let id = this.data.id; 
     web.request("C1019", {
       "id": id
     }, {
       success: function(data) {
         data.state = "show";
-        let len = data.groupNum - data.userAvatarList.length;
+        let len = data.groupNum - data.userList.length;
         data.userUnknowList = [];
         for(let i=0;i<len;i++){
           data.userUnknowList.push({});
@@ -126,10 +124,11 @@ Page({
    */
   onShareAppMessage: function() {
     let that = this;
+
     return {
-      title: '自定义转发标题',
-      path: '../../../group/detail/index?teamId=' + that.teamId,
-      imageUrl: that.imageUrl
+      title: that.data.nickName + " 推荐,限购" + that.data.groupNum + "个【" + that.data.goodName+"】",
+      path: '../../../group/detail/index?teamId=' + that.data.teamId,
+      imageUrl: that.data.shareImageUrl,
     }
   }
 })

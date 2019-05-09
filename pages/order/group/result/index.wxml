@@ -15,10 +15,10 @@
       </view>
     </view>
     <view class="user_list">
-      <view wx:for="{{userAvatarList}}" class="item">
-        <image src="{{item}}"></image>
+      <view wx:for="{{userList}}" wx:key="{{item.id}}" class="item">
+        <image src="{{item.avatarUrl}}"></image>
       </view>
-      <view wx:for="{{userUnknowList}}" class="item">
+      <view wx:for="{{userUnknowList}}" wx:key="{{item.id}}" class="item">
         <view>?</view>
       </view> 
     </view>
