@@ -38,11 +38,12 @@ Page({
     }, {
       success: function(data) {
         data.state = "show";
-        let t1 = new Date(data.getTimeStart);
-        data.getTimeStart = (t1.getMonth() + 1) + '月' + t1.getDate() + "日";
 
-        let t2 = new Date(data.getTimeStop);
-        data.getTimeStop = (t2.getMonth() + 1) + '月' + t2.getDate() + "日";
+        let d1Arr = data.getTimeStart.split(" ")[0].split("-");
+        data.getTimeStart = d1Arr[1] + '月' + d1Arr[2] + "日";
+
+        let d2Arr = data.getTimeStop.split(" ")[0].split("-");
+        data.getTimeStop = d2Arr[1] + '月' + d2Arr[2] + "日";
 
         data.detail = JSON.parse(data.detail);
         console.log(data);
@@ -60,8 +61,13 @@ Page({
   showEndTime: function() {
     let that = this;
 
-    let date1 = new Date(that.data.stopTime);
-    let date2 = new Date();
+    let dtStr = that.data.stopTime;
+    let dtArr = dtStr.split(" ");
+    let dArr = dtArr[0].split("-");
+    let tArr = dtArr[1].split(":");
+ 
+    let date1 = new Date(dArr[0], dArr[1]-1, dArr[2], tArr[0], tArr[1], tArr[2]);
+    let date2 = new Date(); 
 
     let tem = date1.getTime() - date2.getTime();
     let hour = parseInt(tem / 3600000);

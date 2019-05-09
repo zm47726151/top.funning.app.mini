@@ -1,3 +1,4 @@
+
 // pages/order/group/confirm/index.js
 
 const web = require("../../../../common/web.js");
@@ -15,6 +16,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.setBackgroundColor({
+      backgroundColorTop: '#ff9800', // 顶部窗口的背景色为白色
+      backgroundColor:"#ff9800",
+      backgroundColorBottom: '#ffffff', // 底部窗口的背景色为白色
+    })
+
     this.setData({
       id: options.id
     });
@@ -34,10 +41,11 @@ Page({
         data.stateValue = data.state;
         data.stateImage = "../../image/detail/" + that.getStateImage(data.state) + ".png";
         data.state = "show";
-        let getTimeStart = new Date(data.getTimeStart);
-        let getTimeStop = new Date(data.getTimeStop);
-        getTimeStart = (getTimeStart.getMonth() + 1) + "月" + getTimeStart.getDate() + "日";
-        getTimeStop = (getTimeStop.getMonth() + 1) + "月" + getTimeStop.getDate() + "日";
+
+        let d1Arr = data.getTimeStart.split(" ")[0].split("-");
+        let d2Arr = data.getTimeStop.split(" ")[0].split("-");  
+        let getTimeStart = d1Arr[1] + "月" + d1Arr[2] + "日";
+        let getTimeStop = d2Arr[1] + "月" + d2Arr[2] + "日";
         data.getTime = getTimeStart + " - " + getTimeStop + " 8:00-23:00";
         that.setData(data);
       },

@@ -97,7 +97,6 @@ Page({
     }
   },
   toDetail: function(p) {
-    console.log(p.currentTarget.dataset.id);
     wx.navigateTo({
       url: 'detail/index?id=' + p.currentTarget.dataset.id,
     })
