@@ -15,8 +15,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let backPageCount = options.backPageCount;
+    if (!backPageCount) {
+      backPageCount = 1;
+    }
+    console.log(backPageCount);
     this.setData({
-      "id": options.id
+      "id": options.id,
+      "backPageCount": backPageCount
     });
     this.getData();
   },
@@ -107,7 +113,10 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    let backPageCount = this.data.backPageCount;
+    wx.navigateBack({
+      delta: backPageCount
+    });
   },
 
   /**

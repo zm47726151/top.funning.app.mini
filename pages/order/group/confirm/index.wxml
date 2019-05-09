@@ -5,12 +5,10 @@
       <view class="header">
         <view class="column1">
           <image src="{{stateImage}}" class="headerImage">{{headerImage}}</image>
-          <text class="state globle_text_4">{{stateStr}}</text>
+          <text class="state globle_text_5">{{stateStr}}</text>
         </view>
-        <view class="column2 globle_text_2">
-          <view class="groupNum ">
-            {{groupNum}}人团
-          </view>
+        <view class="groupNum globle_text_2">
+          {{groupNum}}人团
         </view>
       </view>
 
@@ -22,7 +20,7 @@
         <view class="right">
           <image style='display:none' src="image/phone.png"></image>
           <view style='display:none' class='line'></view>
-          <image style='display:none'  src="image/map.png"></image>
+          <image style='display:none' src="image/map.png"></image>
         </view>
       </view>
       <image class="post_line" mode='scaleToFill' src='../../image/line.png'></image>
@@ -55,9 +53,10 @@
     </scroll-view>
   </view>
   <view wx:if="{{state == 'show'}}" class="bottom">
-    <view catchtap='cancel' class="cancel globle_text_3">取消订单</view>
-    <view catchtap='contact' class="contact globle_text_3">联系客服</view>
-    <view catchtap='confirm' class="pay globle_text_3">付款 {{price}}</view>
+    <view catchtap='cancel' class="button globle_text_2">申请退款</view>
+    <view catchtap='cancel' class="button globle_text_2">取消订单</view>
+    <view catchtap='contact' class="button globle_text_2">联系客服</view>
+    <view catchtap='confirm' class="button globle_text_2 orange">付款 {{price}}</view>
   </view>
 
   <view wx:elif="{{state == 'load'}}" class="lv_container">
