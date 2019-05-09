@@ -25,7 +25,7 @@ Page({
       "state": "load"
     });
     let that = this;
-    let id = this.data.id; 
+    let id = this.data.id;
     web.request("C1019", {
       "id": id
     }, {
@@ -33,7 +33,7 @@ Page({
         data.state = "show";
         let len = data.groupNum - data.userList.length;
         data.userUnknowList = [];
-        for(let i=0;i<len;i++){
+        for (let i = 0; i < len; i++) {
           data.userUnknowList.push({});
         }
         that.setData(data);
@@ -41,10 +41,10 @@ Page({
       },
       fail: function(code, msg) {
         if (code == "-1001") {
-          setTimeout(function(){
+          setTimeout(function() {
             that.getData();
-          },1500);
-          
+          }, 1500);
+
         } else {
           that.setData({
             "state": "error",
@@ -55,16 +55,21 @@ Page({
     });
   },
 
-  showEndTime: function () {
+  showEndTime: function() {
     let that = this;
 
-    let date1 = new Date(that.data.stopTime);
+    let dtStr = that.data.stopTime;
+    let dtArr = dtStr.split(" ");
+    let dArr = dtArr[0].split("-");
+    let tArr = dtArr[1].split(":");
+
+    let date1 = new Date(dArr[0], dArr[1] - 1, dArr[2], tArr[0], tArr[1], tArr[2]);
     let date2 = new Date();
 
     let tem = date1.getTime() - date2.getTime();
     let hour = parseInt(tem / 3600000);
     let minute = parseInt(tem % 3600000 / 60000);
-    let second = parseInt(tem % 60000 / 1000); 
+    let second = parseInt(tem % 60000 / 1000);
     this.setData({
       stopTimeDetail: {
         hour: hour,
@@ -72,7 +77,7 @@ Page({
         second: second
       }
     });
-    setTimeout(function () {
+    setTimeout(function() {
       that.showEndTime();
     }, 1000);
   },
@@ -126,7 +131,7 @@ Page({
     let that = this;
 
     return {
-      title: that.data.nickName + " 推荐,限购" + that.data.groupNum + "个【" + that.data.goodName+"】",
+      title: that.data.nickName + " 推荐,限购" + that.data.groupNum + "个【" + that.data.goodName + "】",
       path: '../../../group/detail/index?teamId=' + that.data.teamId,
       imageUrl: that.data.shareImageUrl,
     }
