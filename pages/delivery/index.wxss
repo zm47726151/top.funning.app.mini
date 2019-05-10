@@ -186,7 +186,12 @@
   padding-right: 60rpx;
   height: 100rpx;
   display: flex;
+  color: #fff;
   align-items: center;
+}
+
+.shop_car .pay:active {
+  background-color: #ff9800;
 }
 
 .shop_car image {

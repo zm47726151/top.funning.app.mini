@@ -56,12 +56,13 @@
 }
 
 .mail_line {
-  width: 100%;
+  width: 750rpx;
   height: 40rpx;
 }
 
 .title {
   padding: 20rpx;
+  margin-top: -25rpx;
   border-bottom-color: #eee;
   border-bottom-style: solid;
   border-bottom-width: 1rpx;

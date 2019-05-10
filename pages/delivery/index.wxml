@@ -31,7 +31,7 @@
               </view>
             </view>
           </view>
-          <view class="line"> </view>
+          <view class="line"></view>
         </view>
       </scroll-view>
     </view>
@@ -52,7 +52,6 @@
 
     <view wx:if="{{shoplistVisibility=='show'}}" catchtap='hideShoplist' class='shop_list bg_floating'>
       <view catchtap="showShoplist" class="shop_list_content bg_white">
-
         <view class="shop_list_header bg_grey">
           <text class="globle_text_3">已选商品</text>
 
