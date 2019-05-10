@@ -26,6 +26,10 @@
   font-size: 25rpx;
 }
 
+view{
+  color: #333;
+}
+
 text {
   font-size: 40rpx;
   color: #333;
