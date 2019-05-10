@@ -3,7 +3,7 @@
 const web = require("../../../../common/web.js");
 
 Page({
-
+  unloaded: false,
   /**
    * 页面的初始数据
    */
@@ -47,10 +47,11 @@ Page({
       },
       fail: function(code, msg) {
         if (code == "-1001") {
-          setTimeout(function() {
-            that.getData();
-          }, 1500);
-
+          if (!that.unloaded) {
+            setTimeout(function() {
+              that.getData();
+            }, 1500);
+          }
         } else {
           that.setData({
             "state": "error",
@@ -62,6 +63,7 @@ Page({
   },
 
   showEndTime: function() {
+    if (this.unloaded) return;
     let that = this;
 
     let dtStr = that.data.stopTime;
@@ -113,6 +115,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
+    this.unloaded = true;
     let backPageCount = this.data.backPageCount;
     wx.navigateBack({
       delta: backPageCount
