@@ -74,61 +74,27 @@ Page({
         return "refund";
     }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮 
+      let that = this;
+      return {
+        title: that.data.nickName + " 推荐,限购" + that.data.groupNum + "个【" + that.data.name + "】",
+        path: 'detail/index?teamId=' + that.data.teamId,
+        imageUrl: that.data.shareImageUrl,
+      }
+    } else {
+      return {
+        title: getApp().appName,
+        path: '/pages/delivery/index',
+        imageUrl: '/image/logo.png'
+      }
+    }
   },
   contact: function() {
-    wx.makePhoneCall({
-      phoneNumber: '18826050039'
-    })
-  },
-  cancel: function() {
     wx.makePhoneCall({
       phoneNumber: '18826050039'
     })
@@ -179,5 +145,68 @@ Page({
         });
       }
     });
-  }
+  },
+  refund: function() {
+    let id = this.data.id;
+    let that = this;
+    wx.showModal({
+      title: '确定申请退款吗?',
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '处理中'
+          }); 
+          web.request("C1022", {
+            "id": id
+          }, {
+              success: function (data) {
+                wx.hideLoading();
+                that.getData();
+              },
+              fail: function (code, msg) {
+                wx.hideLoading();
+                wx: wx.showToast({
+                  title: msg,
+                  image: '/image/failure.png'
+                }); 
+              },
+            });
+        } else if (res.cancel) {
+
+        }
+      }
+    });
+  },
+  cancel: function() {
+
+    let id = this.data.id;
+    let that = this;
+    wx.showModal({
+      title: '确定取消吗?',
+      success(res) {
+        if (res.confirm) {　　　　　　　　　　　　
+          wx.showLoading({
+            title: '处理中',
+          });
+          web.request("C1021", {
+            id: id
+          }, {
+            success: function(data) {
+              wx.hideLoading();
+              that.getData();
+            },
+            fail: function(code, msg) {
+              wx.hideLoading();
+              wx.showToast({
+                image: "/image/failure.png",
+                title: msg,
+              });
+            }
+          });
+        } else if (res.cancel) {
+
+        }
+      }
+    });
+  } 
 })
