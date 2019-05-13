@@ -38,7 +38,7 @@ Page({
         });
         wx.setBackgroundColor({
           backgroundColorTop: titleStyle.color,
-          backgroundColorBottom: '#f4f4f4', 
+          backgroundColorBottom: '#f4f4f4',
         });
         that.setData({
           "state": "show",
@@ -187,10 +187,11 @@ Page({
         wx.hideLoading();
       },
       fail: function(code, msg) {
+        wx.hideLoading();
         wx: wx.showToast({
           title: msg,
           image: '/image/failure.png'
-        });wx.hideLoading();
+        });
       },
     });
   }

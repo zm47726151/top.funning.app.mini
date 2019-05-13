@@ -158,6 +158,12 @@
   padding: 10rpx 20rpx 10rpx 20rpx;
 }
 
+.bottom image{
+  height: 36rpx;
+  width: 36rpx;
+  margin-right: 15rpx;
+}
+
 .bottom .button:active {
   background: #eee;
 }
@@ -171,4 +177,13 @@
 
 .bottom .orange:active {
   background: #ff9800;
+}
+
+.bottom .share{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0rpx 0rpx 0rpx 15rpx;
+  height: 60rpx;
 }
