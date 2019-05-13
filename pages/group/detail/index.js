@@ -1,9 +1,10 @@
 // pages/group/detail/index.js
 const web = require("../../../common/web.js");
-let userInfo = {};
+
 
 Page({
-
+  userInfo: {},
+  interupte: false,
   /**
    * 页面的初始数据
    */
@@ -59,15 +60,17 @@ Page({
     });
   },
   showEndTime: function() {
+    if (this.interupte) return;
+
     let that = this;
 
     let dtStr = that.data.stopTime;
     let dtArr = dtStr.split(" ");
     let dArr = dtArr[0].split("-");
     let tArr = dtArr[1].split(":");
- 
-    let date1 = new Date(dArr[0], dArr[1]-1, dArr[2], tArr[0], tArr[1], tArr[2]);
-    let date2 = new Date(); 
+
+    let date1 = new Date(dArr[0], dArr[1] - 1, dArr[2], tArr[0], tArr[1], tArr[2]);
+    let date2 = new Date();
 
     let tem = date1.getTime() - date2.getTime();
     let hour = parseInt(tem / 3600000);
@@ -91,14 +94,16 @@ Page({
       url: '../index'
     })
   },
-
+  onUnload: function() {
+    this.interupte = true;
+  },
   getUserInfo: function(res) {
-    userInfo = res.detail.userInfo;
+    this.userInfo = res.detail.userInfo;
     this.start();
   },
 
   start: function() {
-    console.log(userInfo);
+    console.log(this.userInfo);
     let id = this.data.id;
     let teamId = this.data.teamId;
     wx.showLoading({
@@ -114,7 +119,7 @@ Page({
         "id": id,
         "teamId": teamId
       },
-      "userInfo": userInfo
+      "userInfo": this.userInfo
     }, {
       success: function(data) {
         console.log(data);

@@ -90,7 +90,9 @@ Page({
           this.fail("-1001", "没有订单");
           return;
         }
+
         that.setData({
+          "nickName": data.nickName,
           "groups": data.groups
         });
         wx.stopPullDownRefresh();
@@ -106,7 +108,7 @@ Page({
   },
 
   getOrders: function() {
-    
+
     let that = this;
     web.request("C1005", {}, {
       success: function(data) {
@@ -157,7 +159,7 @@ Page({
     })
   },
 
-  toGroupDetail: function (res) {
+  toGroupDetail: function(res) {
     wx.navigateTo({
       url: 'group/confirm/index?id=' + res.currentTarget.dataset.id,
     })
