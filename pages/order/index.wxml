@@ -40,9 +40,9 @@
           <view class='content'>
             <image src="{{item.imageUrl}}"></image>
             <view class="right">
-              <view class="name globle_text_4">{{item.name}}</view>
-              <view class="description globle_text_3 text_color_grey">{{item.description}}</view>
-              <view class='price globle_text_5 text_color_orange'>¥{{item.price}}</view>
+              <view class="name globle_text_3">{{item.name}}</view>
+              <view class="description globle_text_2 text_color_grey">{{item.description}}</view>
+              <view class='price globle_text_4 text_color_orange'>¥{{item.price}}</view>
             </view>
           </view>
         </view>

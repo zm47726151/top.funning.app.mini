@@ -11,6 +11,7 @@
           {{groupNum}}人团
         </view>
       </view>
+      <image style='width:750rpx; height:50rpx' src="image/header_bottom_bg.png"></image>
 
       <view class="address">
         <view class="left">
@@ -29,25 +30,33 @@
         <view class="globle_text_3">{{getTime}}</view>
       </view>
 
-      <view class="good">
+      <view catchtap='toGoodOrder' class="good">
         <view class="item">
           <image src="{{imageUrl}}"></image>
           <view class="right">
-            <view class="name globle_text_4">{{name}}</view>
-            <view class="description globle_text_3 text_color_grey">{{description}}</view>
-            <view class='price globle_text_5 text_color_orange'>¥{{price}}</view>
+            <view class="name globle_text_3">{{name}}</view>
+            <view class="description globle_text_2 text_color_grey">{{description}}</view>
+            <view class='price globle_text_4 text_color_orange'>¥{{price}}</view>
           </view>
         </view>
       </view>
 
-      <view class="info">
-        <view class="price">
-          <text class="name globle_text_3 text_color_grey">订单金额: </text>
-          <text class="value text_color_grey globle_text_5 text_color_red">¥{{price}}</text>
+      <view class="orderId">
+        <view class='top'>
+          <text class="name text_color_grey globle_text_3">订单编号: </text>
+          <text catchtap='copyText' data-text="{{id}}"  class="name text_color_grey globle_text_2 copy">点击复制</text>
         </view>
+        <text class="value text_color_grey globle_text_3 text_color_red">{{id}}</text>
+      </view>
+
+      <view class="info"> 
         <view class="createTime">
           <text class="name text_color_grey globle_text_3">创建时间: </text>
           <text class="value text_color_grey globle_text_3">{{createDT}}</text>
+        </view>
+        <view wx:if="{{payDT}}" class="payTime">
+          <text class="name text_color_grey globle_text_3">付款时间: </text>
+          <text class="value text_color_grey globle_text_3">{{payDT}}</text>
         </view>
       </view>
     </scroll-view>
@@ -63,7 +72,7 @@
     </button>
   </view>
 
-  <view wx:elif="{{state == 'load '}}" class="lv_container">
+  <view wx:elif="{{state == 'load'}}" class="lv_container">
     <view class="lv_point lv_point1"></view>
     <view class="lv_point lv_point2"></view>
     <view class="lv_point lv_point3"></view>

@@ -234,7 +234,7 @@ Page({
       success: function(data) {
         wx.hideLoading();
         wx.redirectTo({
-          url: '../normal/detail/index?id=' + id,
+          url: '../detail/index?id=' + id,
         });
       },
       fail: function(code, msg) {
