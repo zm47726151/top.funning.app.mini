@@ -14,8 +14,8 @@ function request(cmd, data, operation) {
   console.log("WebRequest.data", data);
   console.log("WebRequest.cookie", cookie);
   wx.request({
-    //url: 'https://fruits.knxy.top/api',
-    url: 'http://127.0.0.1:8080/api',
+     url:'https://xyg.app.funning.top/api',
+   url: 'http://127.0.0.1:8080/api',
     data: {
       "cmd": cmd,
       "data": data,
@@ -35,7 +35,7 @@ function request(cmd, data, operation) {
       setCookies(res);
       let d = res.data;
       if (d.code > 0) {
-        operation.success(d.data);
+        operation.success(d.data,d.code);
       } else {
         if (!d.msg) {
           d.msg = "处理异常";

@@ -14,8 +14,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  height: 120rpx;
+  justify-content: space-between;padding-top: 10rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
@@ -28,8 +27,8 @@
 }
 
 .header .column1 .headerImage {
-  height: 50rpx;
-  width: 50rpx;
+  height: 46rpx;
+  width: 46rpx;
   margin-right: 15rpx; 
 }
 
@@ -39,7 +38,7 @@
 }
 
 .header .groupNum {
-  padding: 5rpx 15rpx 5rpx 15rpx;
+  padding: 3rpx 12rpx 3rpx 12rpx;
   border-style: solid;
   border-width: 2rpx;
   border-radius: 50rpx;
@@ -94,7 +93,9 @@
   background: #fff;
   margin-bottom: 20rpx;
 }
-
+.good:active {
+  background: #eee;
+}
 .good .item {
   padding: 20rpx;
   display: flex;
@@ -133,6 +134,33 @@
   margin-bottom: 20rpx;
 }
 
+.orderId{
+  background: #fff;
+  padding: 15rpx;
+  border-bottom-color: #eee;
+  border-bottom-style: solid;
+  border-bottom-width: 1rpx;
+}
+
+.orderId .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.orderId .top .copy{
+  border-color: #999;
+  border-style: solid;
+  border-width: 1rpx;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.orderId .top .copy:active{
+  background: #eee;
+}
+
 .bottom {
   position: absolute;
   bottom: 0rpx;
@@ -152,7 +180,7 @@
   margin-left: 20rpx;
   border-style: solid;
   border-width: 1rpx;
-  border-color: #eee;
+  border-color: #999;
   border-radius: 30rpx;
   color: #777;
   padding: 10rpx 20rpx 10rpx 20rpx;

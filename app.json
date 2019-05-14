@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/order/index",
     "pages/delivery/index",
     "pages/delivery/good/detail/index",
     "pages/delivery/good/search/index",
     "pages/group/index",
     "pages/group/detail/index",
+    "pages/order/index",
     "pages/order/normal/detail/index",
     "pages/order/normal/confirm/index",
     "pages/order/group/confirm/index",
@@ -21,7 +21,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ff9800",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "KFS"
+    "navigationBarTitleText": "昕阳光"
   },
   "tabBar": {
     "position": "bottom",
@@ -33,12 +33,6 @@
         "iconPath": "image/tabbars/delivery1.png",
         "selectedIconPath": "image/tabbars/delivery.png",
         "text": "外卖"
-      },
-      {
-        "pagePath": "pages/group/index",
-        "iconPath": "image/tabbars/group1.png",
-        "selectedIconPath": "image/tabbars/group.png",
-        "text": "拼团"
       },
       {
         "pagePath": "pages/order/index",

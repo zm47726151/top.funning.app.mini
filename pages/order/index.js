@@ -107,8 +107,7 @@ Page({
     });
   },
 
-  getOrders: function() {
-
+  getOrders: function() { 
     let that = this;
     web.request("C1005", {}, {
       success: function(data) {

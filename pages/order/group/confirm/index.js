@@ -77,7 +77,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮 
       let that = this;
@@ -93,6 +93,12 @@ Page({
         imageUrl: '/image/logo.png'
       }
     }
+  },
+  copyText: function(e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function(res) {}
+    })
   },
   contact: function() {
     wx.makePhoneCall({
@@ -155,22 +161,22 @@ Page({
         if (res.confirm) {
           wx.showLoading({
             title: '处理中'
-          }); 
+          });
           web.request("C1022", {
             "id": id
           }, {
-              success: function (data) {
-                wx.hideLoading();
-                that.getData();
-              },
-              fail: function (code, msg) {
-                wx.hideLoading();
-                wx: wx.showToast({
-                  title: msg,
-                  image: '/image/failure.png'
-                }); 
-              },
-            });
+            success: function(data) {
+              wx.hideLoading();
+              that.getData();
+            },
+            fail: function(code, msg) {
+              wx.hideLoading();
+              wx: wx.showToast({
+                title: msg,
+                image: '/image/failure.png'
+              });
+            },
+          });
         } else if (res.cancel) {
 
         }
@@ -208,5 +214,11 @@ Page({
         }
       }
     });
-  } 
+  },
+  toGoodOrder: function() {
+    let groupGoodId = this.data.groupGoodId;
+    wx.navigateTo({
+      url: '../../../group/detail/index?id=' + groupGoodId,
+    })
+  }
 })
