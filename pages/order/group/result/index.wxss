@@ -117,6 +117,12 @@
   border-radius: 80rpx;
 }
 
+.container .share image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
 .container .share .button:active {
   background: #ff9800;
 }

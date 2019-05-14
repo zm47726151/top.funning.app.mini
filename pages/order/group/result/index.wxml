@@ -23,7 +23,11 @@
       </view> 
     </view>
     <view class="share">
-      <button open-type="share" class="button globle_text_4">邀请好友参团</button>
+      <button open-type="share" class="button globle_text_4">
+      <image src='../../image/share.png'></image>
+      邀请好友参团
+
+      </button>
       <view class="note globle_text_2 text_color_grey">分享到2个微信群，成功率高达99%</view>
     </view>
     <view class="dialog">
