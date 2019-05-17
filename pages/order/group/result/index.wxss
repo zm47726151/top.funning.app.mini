@@ -53,7 +53,7 @@
   justify-content: center;
 }
 
-.container .info .content .time .item{
+.container .info .content .time .item {
   background: #fff;
   padding: 3rpx 6rpx 3rpx 6rpx;
   margin: 0rpx 5rpx 0rpx 5rpx;
@@ -107,7 +107,7 @@
 }
 
 .container .share .button {
-  background: #ffa726; 
+  background: #ffa726;
   color: #fff;
   width: 100%;
   height: 90rpx;
@@ -117,7 +117,7 @@
   border-radius: 80rpx;
 }
 
-.container .share image{
+.container .share image {
   width: 40rpx;
   height: 40rpx;
   margin-right: 20rpx;
@@ -139,7 +139,7 @@
   left: 0rpx;
   right: 0rpx;
   bottom: 0rpx;
-  background: #00000077; 
+  background: #00000077;
   flex-direction: column;
   justify-content: flex-end;
   align-items: stretch;
@@ -160,7 +160,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-} 
+}
 
 .container .dialog .choice_list .item image {
   width: 80rpx;
@@ -176,6 +176,7 @@
   border-top-width: 2rpx;
   text-align: center;
 }
-.container .dialog .button:active{
-  background:#eee;
+
+.container .dialog .button:active {
+  background: #eee;
 }

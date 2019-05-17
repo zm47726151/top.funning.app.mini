@@ -42,6 +42,13 @@ Page({
           this.fail(code,"拼团活动已经结束了!");
           return;
         }
+        if (code == 1002) {
+          this.fail(code, "商品已经下架!");
+          return;
+        }
+
+        
+
         data.state = "show";
 
         let d1Arr = data.getTimeStart.split(" ")[0].split("-");
