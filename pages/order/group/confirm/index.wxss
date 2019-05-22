@@ -14,8 +14,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  height: 120rpx;
+  justify-content: space-between;padding-top: 10rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
 }
@@ -28,8 +27,8 @@
 }
 
 .header .column1 .headerImage {
-  height: 50rpx;
-  width: 50rpx;
+  height: 46rpx;
+  width: 46rpx;
   margin-right: 15rpx; 
 }
 
@@ -39,7 +38,7 @@
 }
 
 .header .groupNum {
-  padding: 5rpx 15rpx 5rpx 15rpx;
+  padding: 3rpx 12rpx 3rpx 12rpx;
   border-style: solid;
   border-width: 2rpx;
   border-radius: 50rpx;

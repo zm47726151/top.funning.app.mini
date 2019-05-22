@@ -11,6 +11,7 @@
           {{groupNum}}人团
         </view>
       </view>
+      <image style='width:750rpx; height:50rpx' src="image/header_bottom_bg.png"></image>
 
       <view class="address">
         <view class="left">
@@ -71,7 +72,7 @@
     </button>
   </view>
 
-  <view wx:elif="{{state == 'load '}}" class="lv_container">
+  <view wx:elif="{{state == 'load'}}" class="lv_container">
     <view class="lv_point lv_point1"></view>
     <view class="lv_point lv_point2"></view>
     <view class="lv_point lv_point3"></view>
