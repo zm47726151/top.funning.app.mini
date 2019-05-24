@@ -1,5 +1,5 @@
 # 小程序 - 噼里啪啦水果摊
-<div style="padding:15px">
+<div style="padding:15px; background:#eee">
 
 <div>
   <img style="width:30%" src="https://www.knxy.top/fruits/IMG_0003.png" />
