@@ -1,11 +1,8 @@
-# 小程序 - 噼里啪啦水果摊
+# 小程序 - 饭宁水果摊
 
-[客户端源码 https://github.com/MrNeptune/top.knxy.fruits.java](https://github.com/MrNeptune/top.knxy.fruits.java)
+[服务端源码 https://github.com/MrNeptune/top.knxy.fruits.java](https://github.com/MrNeptune/top.knxy.fruits.java)
 
 <div style="padding:15px; background:#eee">
-
-
-
 <div>
   <img style="width:30%" src="https://www.knxy.top/fruits/IMG_0003.png" />
   <img style="width:30%" src="https://www.knxy.top/fruits/IMG_0004.png" />
