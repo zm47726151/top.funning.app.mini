@@ -27,12 +27,6 @@
     <text class="globle_text_3">关于 昕阳光</text>
     <image class="arrow" src='/image/about/arrow.png'></image>
   </button>
-  <view class="line" style='display:none'></view>
-  <button bindtap='toKnxy' class="item">
-    <text class="globle_text_3">关于 科宁新远</text>
-    <image class="arrow" src='/image/about/arrow.png'></image>
-  </button>
-  <view class="line"></view> 
 
   <view class="exit globle_text_3 text_color_red hide">退出登录</view>
 
