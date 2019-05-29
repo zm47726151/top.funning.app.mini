@@ -21,7 +21,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ff9800",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "噼里啪啦"
+    "navigationBarTitleText": "昕阳光"
   },
   "tabBar": {
     "position": "bottom",
@@ -33,12 +33,6 @@
         "iconPath": "image/tabbars/delivery1.png",
         "selectedIconPath": "image/tabbars/delivery.png",
         "text": "外卖"
-      },
-      {
-        "pagePath": "pages/group/index",
-        "iconPath": "image/tabbars/group1.png",
-        "selectedIconPath": "image/tabbars/group.png",
-        "text": "拼团"
       },
       {
         "pagePath": "pages/order/index",

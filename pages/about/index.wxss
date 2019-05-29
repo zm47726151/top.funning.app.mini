@@ -97,6 +97,6 @@
   border-bottom-width: 1rpx;
 }
 
-.exit:active{
+.exit:active {
   background: #eee;
 }
