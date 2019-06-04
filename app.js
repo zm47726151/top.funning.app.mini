@@ -2,7 +2,7 @@
  
 App({
   imageHost:"http://image.fruits.knxy.top/",
-  appName: "噼里啪啦",
+  appName: "昕阳光果品店",
   isLogin: false,
   shopList: [],
   cookie: {}, 

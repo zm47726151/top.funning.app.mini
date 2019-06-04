@@ -2,9 +2,12 @@
 
 ## 使用说明
 
-Host配置
-ImageHost配置
+配置 common/web.js -> host
+配置 app.json -> imageHost
 
+修改 app,js -> appName
+修改 image/logo.png
+修改 app.json -> window.navigationBarTitleText
 
 [服务端源码 https://github.com/MrNeptune/top.knxy.fruits.java](https://github.com/MrNeptune/top.knxy.fruits.java)
 

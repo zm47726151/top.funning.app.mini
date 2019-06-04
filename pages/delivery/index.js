@@ -360,7 +360,7 @@ Page({
   },
   onShareAppMessage: function() {
     return {
-      title: 'KFS',
+      title: getApp().appName,
       path: '/pages/delivery/index',
       imageUrl: '/image/logo.png'
     }
