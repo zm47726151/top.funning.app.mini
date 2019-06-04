@@ -1,14 +1,7 @@
 <!--pages/order/index.wxml-->
 <view class="container">
   <scroll-view wx:if="{{state == 'show'}}" scroll-y>
-    <view class="navigator">
-      <view catchtap='toNomal' class="button {{listMode==1?'choice':''}} globle_text_3">
-        及时达
-      </view>
-      <view catchtap='toGroup' class="button {{listMode==2?'choice':''}} globle_text_3">
-        拼团
-      </view>
-    </view>
+   
     <view wx:if="{{listMode==1}}" class="normal">
       <view class="item" data-id='{{item.id}}' wx:for="{{orders}}" bindtap='toOrderDetail' wx:key="{{item.id}}">
         <view class="line"></view>
