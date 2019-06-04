@@ -15,6 +15,7 @@ const web = require("../../common/web.js");
 Page({
   isTypeClick: false,
   data: {
+    "imageHost": app.imageHost,
     "state": "load", //show,error,
     "errorMsg": "",
     /*"dataList": [{

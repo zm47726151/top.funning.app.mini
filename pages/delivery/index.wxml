@@ -17,7 +17,7 @@
       <scroll-view class="good" id="goodList" scroll-y="true" scroll-top="{{scrollValue}}">
         <view wx:for="{{currentType.goodList}}" wx:key="{{item.id}}" data-id='{{item.id}}' bindtap='toDetail'>
           <view class="item">
-            <image class="image" src="{{item.imageUrl}}"></image>
+            <image class="image" src="{{imageHost}}{{item.imageUrl}}"></image>
             <view class="info">
               <text class="name globle_text_3">{{item.name}}</text>
               <text class="description globle_text_1 text_color_grey">{{item.description}}</text>

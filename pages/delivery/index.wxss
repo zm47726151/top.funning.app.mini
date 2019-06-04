@@ -102,6 +102,7 @@
 .good .item .image {
   width: 219rpx;
   height: 219rpx;
+  background:#fafafa;
 }
 
 .good .item .info .description {

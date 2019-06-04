@@ -1,5 +1,11 @@
 # 小程序 - 饭宁水果摊
 
+## 使用说明
+
+Host配置
+ImageHost配置
+
+
 [服务端源码 https://github.com/MrNeptune/top.knxy.fruits.java](https://github.com/MrNeptune/top.knxy.fruits.java)
 
 <div style="padding:15px; background:#eee">

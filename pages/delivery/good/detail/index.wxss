@@ -1,12 +1,15 @@
 /* pages/delivery/good/detail/index.wxss */
 
-
 .content {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0rpx;
+}
+
+.content image {
+  background: #fafafa;
 }
 
 .content .pictures {
@@ -61,8 +64,8 @@
 
 .content .title view {
   display: flex;
-  padding-left:30rpx;
-  padding-right: 30rpx; 
+  padding-left: 30rpx;
+  padding-right: 30rpx;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -81,10 +84,13 @@
   width: 350rpx;
   border-radius: 90rpx;
 }
+
 /******************************/
+
 .line {
   height: 15rpx;
 }
+
 /******************************/
 
 .shop_car {
@@ -97,7 +103,7 @@
   border-top-width: 1rpx;
   border-top-color: #eee;
   display: flex;
-  background: #ffffff;
+  background: #fff;
   flex-direction: row;
   align-items: center;
   padding-left: 30rpx;
@@ -144,7 +150,6 @@
   height: 50rpx;
 }
 
-
 .shop_list {
   position: absolute;
   bottom: 100rpx;
@@ -154,8 +159,6 @@
   display: flex;
   flex-direction: column-reverse;
 }
-
- 
 
 .shop_list_header {
   padding: 15rpx;
@@ -176,10 +179,9 @@
   align-items: center;
 }
 
-.shop_list scroll-view{
+.shop_list scroll-view {
   max-height: 500rpx;
 }
-
 
 .shop_list_item {
   display: flex;

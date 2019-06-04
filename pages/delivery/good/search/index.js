@@ -1,12 +1,13 @@
 // pages/delivery/good/search/index.js
 
 const web = require("../../../../common/web.js");
-
+let app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    "imageHost": app.imageHost,
     "state": "none"
   },
 

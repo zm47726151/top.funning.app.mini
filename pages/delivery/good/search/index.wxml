@@ -15,7 +15,7 @@
 
   <view class="list" wx:elif="{{state=='list'}}">
     <view catchtap='itemClick' wx:for="{{dataList}}" class="item" wx:key="{{item.id}}" data-id='{{item.id}}'>
-      <image src='{{item.imageUrl}}'></image>
+      <image src='{{imageHost}}{{item.imageUrl}}'></image>
       <view class="text">
         <text class="globle_text_3">{{item.name}}</text>
         <text class="price text_color_red globle_text_3">¥ {{item.price}}</text>

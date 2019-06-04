@@ -69,6 +69,7 @@
 .item image{
   width: 190rpx;
   height: 190rpx;
+  background:#fafafa;
 }
 
 .item .text{

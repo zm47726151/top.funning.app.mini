@@ -20,7 +20,7 @@
         </view>
         <scroll-view class="pictures" scroll-x="true">
           <view>
-            <image wx:for="{{item.goodList}}" wx:key="{{goodItem.body.id}}" wx:for-item="goodItem" src="{{goodItem.body.imageUrl}}"></image>
+            <image wx:for="{{item.goodList}}" wx:key="{{goodItem.body.id}}" wx:for-item="goodItem" src="{{imageHost}}{{goodItem.body.imageUrl}}"></image>
           </view>
         </scroll-view>
         <view class="bottom">

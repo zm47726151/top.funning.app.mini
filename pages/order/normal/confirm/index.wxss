@@ -83,7 +83,7 @@
 .goods .item image {
   width: 219rpx;
   height: 219rpx;
-  background: #eff;
+  background: #fefefe;
   margin-right: 20rpx;
 }
 

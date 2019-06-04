@@ -1,7 +1,7 @@
 // pages/order/normal/detail/index.js
 
 let web = require("../../../../common/web.js");
-
+const app = getApp();
 Page({
 
   /**
@@ -9,7 +9,8 @@ Page({
    */
   data: {
     "state": "show",
-    "orders": []
+    "orders": [],
+    "imageHost":app.imageHost
   },
 
   /**
@@ -150,7 +151,7 @@ Page({
   pay: function() {
     let that = this;
     wx.navigateTo({
-      url: '../normal/confirm/index?id=' + that.data.orderId,
+      url: '../confirm/index?id=' + that.data.orderId,
     })
   },
   cancel: function() {

@@ -3,12 +3,14 @@
 const wq = require("../../../../common/web.js");
 const addrUtils = require("../../../../common/address.js");
 
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    "imageHost": app.imageHost,
     "state": "load", //error,load,show
     "id": "",
     "goodList": [],

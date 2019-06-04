@@ -22,7 +22,7 @@
       <view class="title bg_white globle_text_3">商品列表</view>
       <view class="goods bg_white">
         <view class="item" wx:for="{{goodList}}" wx:key="{{item.id}}">
-          <image src="{{item.body.imageUrl}}"></image>
+          <image src="{{imageHost}}{{item.body.imageUrl}}"></image>
           <view class="info">
             <text class="name globle_text_3">{{item.body.name}}</text>
             <text class="description globle_text_1 text_color_grey">{{item.body.description}}</text>

@@ -1,7 +1,7 @@
 // pages/order/index.js
 
 const web = require("../../common/web.js");
-
+const app = getApp();
 Page({
 
   /**
@@ -9,7 +9,8 @@ Page({
    */
   data: {
     "listMode": "1",
-    "orders": {}
+    "orders": {},
+    "imageHost": app.imageHost
   },
 
   /**

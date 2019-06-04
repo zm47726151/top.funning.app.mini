@@ -63,7 +63,6 @@ page{
 .goods .item image {
   width: 219rpx;
   height: 219rpx;
-  background: #eff;
   margin-right: 20rpx;
 }
 

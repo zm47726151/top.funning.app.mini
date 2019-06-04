@@ -5,7 +5,7 @@
       <swiper indicator-dots="true" indicator-color="#ffe0b2" indicator-active-color="#ff9800" autoplay="true" class="pictures">
         <block wx:for="{{header.imageList}}" wx:key="{{item.id}}">
           <swiper-item>
-            <image item-id="{{item.index}}" src="{{item}}" style='width:750rpx; height:750rpx'></image>
+            <image item-id="{{item.index}}" src="{{imageHost}}{{item}}" style='width:750rpx; height:750rpx;'></image>
           </swiper-item>
         </block>
       </swiper>
@@ -28,7 +28,7 @@
           <image src="/image/delivery/good/detail/line1.png"></image>
         </view>
       </view>
-      <image wx:for="{{detail.imageList}}" wx:key="{{index}}" src="{{item}}" mode='widthFix' style="width:750rpx;"></image>
+      <image wx:for="{{detail.imageList}}" wx:key="{{index}}" src="{{imageHost}}{{item}}" mode='widthFix' style="width:750rpx;"></image>
       <view wx:if="{{goodAmount>0}}" style="height:100rpx;"></view>
     </scroll-view>
 
