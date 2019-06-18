@@ -14,8 +14,8 @@ function request(cmd, data, operation) {
   console.log("WebRequest.data", data);
   console.log("WebRequest.cookie", cookie);
   wx.request({
-    //url:'https://xyg.app.funning.top/api',
-    url: 'http://127.0.0.1:8080/api',
+    url:'https://xyg.app.funning.top/api',
+    //url: 'http://127.0.0.1:8080/api',
     data: {
       "cmd": cmd,
       "data": data,
